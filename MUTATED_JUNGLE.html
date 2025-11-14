@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"MUTATED JUNGLE"</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="FOOTAGE/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Homemade+Apple&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Doto:wght@100..900&family=Homemade+Apple&family=PT+Sans+Narrow:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+    
+    
+</head>
+<body>
+    <div id="progress-bar"></div>
+    <div id="page-loader"></div>
+    <div id="content" style="display:none;">
+    <button id="menu-button">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </button>
+    
+    <div id="menu">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="ARCHIVE.html">ARCHIVE</a></li>
+            <li><a href="ABOUT.html">CONTACT</a></li>
+        </ul>
+    </div>
+    <header>
+        <a href="index.html" class="header-link">
+            <img src="FOOTAGE/logo.png" alt="Seungyu Jung Jeon Logo" class="header-logo">
+        </a>    
+    </header>
+
+    <div class="header-background-color"></div>   
+
+
+    <div class="about-container">
+        <h1 class="about-title">"MUTATED JUNGLE"</h1>
+
+        <p class="about-meta">"HAPPY"</p>
+        <p class="about-meta">June 6, 2025. 23:50.</p>
+
+        <div class="image-footer-container">
+            <img src="FOOTAGE/IMAGE/MUTATED JUNGLE/mutatedjungle1.jpg" alt="Description" class="image">
+            <div class="footer-text">Shot on Iphone.</div>
+        </div>
+
+        <p class="about-text">
+            Since settling myself in Paris, I thought I could have done more personal projects. However these past 6 months were more about gaining input so I can bring a bigger outcome. Because as <i>FD</i> said, impact is forever.
+I came to realize that last year I didn't let myself have enough time to gain input and instead let it flow with what came on my mind. Spontaneous. But who knows, maybe that's THE workflow I am comfortable with: “Being organised in spontaneity” said the british rapper Dave. This short video titled “MUTATED JUNGLE” presents a glimpse of what felt like settling in a new place, layering with Weldon Irvines “Time Capsule” audio track. I don’t know what type of snow my spotify algorithm consumed that day because he brought a magic crystal. Thank you, Spotify. 
+        </p>
+
+        <p class="about-text">
+            I filmed in two different locations for this video. I filmed one at a warehouse's entry of Mitry-Mory and the second location was located next to Chantereine bus stop, north-east outside of Paris' outskirts. I was heading to my crib by bus and came across this beautiful spot that looks like it came straight out of a Ghibli movie. More projects are planned to be shot in this place...trust.
+        </p>
+
+
+        <div class="image-footer-container">
+            <img src="FOOTAGE/IMAGE/MUTATED JUNGLE/CHANTEREINE.jpg" alt="Description" class="image">
+            <img src="FOOTAGE/IMAGE/MUTATED JUNGLE/CHANTEREINESELFIE.jpg" alt="Description" class="image">
+
+
+            <div class="footer-text">Shot on Iphone.</div>
+        </div>
+
+
+        <p class="about-text">
+            I sometimes wonder if anybody will read this. If you’re reading it, thanks for sticking around, I appreciate you for spending your time to witness my art. Even though I stand on the belief that the audience comes last, it doesn’t mean I ignore it. Remember; Write what YOU want. Do what YOU want. The audience comes last. I will always be thankful for those who support me. Both positive and negative feedback reassure me that I'm on the right track. Once again, thank you. “Hate us because they ain’t us”.      
+        </p>
+
+        <div class="vimeo-wrapper">
+            <iframe 
+                src="https://player.vimeo.com/video/1117745442?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                frameborder="0" 
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                title="MUTATED JUNGLE">
+            </iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>     
+
+        
+        <!-- GRID-->
+        <div id="work" class="work-section">
+            <div class="media-gallery">
+                <img src="FOOTAGE/IMAGE/MUTATED JUNGLE/meposing.jpg" alt="Photo 1" data-title="정승유" data-description="if i was video game character on tekken, this would be the pose i'd hit" onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/MUTATED JUNGLE/MUTATEDJUNGLEBTS.jpg" alt="Photo 1" data-title="MUTATED JUNGLE" data-description="behind the scenes" onclick="openLightbox(this)">
+        
+            </div>
+        </div>
+
+</div> 
+
+        <!-- OPEN ICON + ARROW + TITLE AND DESCRIPTION-->
+        <div id="lightbox-modal" class="lightbox" aria-hidden="true" role="dialog">
+                    <span class="close" onclick="closeLightbox()">&times;</span>
+                    <span class="arrow left" onclick="changeImage(-1)">&#10094;</span>
+                    <span class="arrow right" onclick="changeImage(1)">&#10095;</span>
+                    <div class="lightbox-content">
+                        <div class="media-container">
+                            <img id="lightbox-img" class="hidden" src="" alt="">
+                            <video id="lightbox-video" class="hidden" controls>
+                                <source id="video-source" src="" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="lightbox-text">
+                            <h2 id="lightbox-title">Title</h2>
+                            <p id="lightbox-description">Description goes here.</p>
+                        </div>
+                    </div>
+        </div>           
+   
+        <div class="credits">Credits</div>
+        <div class="credit-text">Redacted by SEUNGYU JUNG JEON</div>
+        <div class="credit-text">Footage by SEUNGYU JUNG JEON</div>
+
+
+        <div id="read-more" style="display: none;">
+            <a href="archive.html">CLICK TO SEE MORE!</a>
+        </div>
+        <script>
+            window.addEventListener('scroll', () => {
+                const readMore = document.getElementById('read-more');
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                    readMore.style.display = 'block';
+                }
+            });
+        </script>
+
+
+    <div id="timer" style="position: fixed; top: 0; right: 0; padding: 10px; background: transparent; color: #939393; font-size: 12px; z-index: 9999;" > </div>
+    <div id=click-counter style=position:fixed;top:0;right:-15px;padding:25px;background-color:transparent;color:#939393;font-size:12px;z-index:9999>You clicked 0 times.</div>
+    <div id="footer" style="position: fixed; bottom: 0; right: 0px; padding: 5px; background: transparent; color: rgb(0, 0, 0); font-style: italic; font-size: 9px; z-index: 9999;">Developped by Seungyu Jung</div>
+    
+    <script src="script.js"></script> 
+</body>
+</html>

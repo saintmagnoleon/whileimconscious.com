@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"LA_NOUVELLE_VAGUE"</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="FOOTAGE/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Homemade+Apple&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Doto:wght@100..900&family=Homemade+Apple&family=PT+Sans+Narrow:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+    
+    
+</head>
+<body>
+    <div id="progress-bar"></div>
+    <div id="page-loader"></div>
+    <div id="content" style="display:none;">
+    <button id="menu-button">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </button>
+    
+    <div id="menu">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="ARCHIVE.html">ARCHIVE</a></li>
+            <li><a href="ABOUT.html">CONTACT</a></li>
+        </ul>
+    </div>
+    <header>
+        <a href="index.html" class="header-link">
+            <img src="FOOTAGE/logo.png" alt="Seungyu Jung Jeon Logo" class="header-logo">
+        </a>    
+    </header>
+
+    <div class="header-background-color"></div>   
+
+
+    <div class="about-container">
+        <h1 class="about-title">"LA NOUVELLE VAGUE"</h1>
+
+        <p class="about-meta">70*100CM.</p>
+        <p class="about-meta">April 12, 2025. 11:38 PM.</p>
+
+        <div class="image-footer-container">
+            <img src="FOOTAGE/IMAGE/LANOUVELLEVAGUE/capturedonvhs.jpg" alt="Description" class="image">
+            <div class="footer-text">Captured on VHS tape.</div>
+        </div>
+
+        <p class="about-text">
+            I’m spending a big part of my part-time job salary into to my art. It doesn’t even feel like spending at this point, it feels instead more like “investing”. The return will be high. Trust. 
+            Anyways, this is the biggest print I made so far, extracted from “THE BARRACKS” archive.  It’s one of my favourite film photos and I already knew this one was the one that was getting framed in a clean white frame. Paying a big tribute to the actual french new wave, except this time I wanted reappropriate this whole essence of new wave. 
+            Don’t enjoy just on the push the wave is offering you, but enjoying also on visualising on that wave pumping up to give you that push. True beauty is always unseen. Unspoken narratives are never spoken. And me as well as many current artist are here to change it. 
+        </p>
+
+        <div class="image-footer-container">
+            <img src="FOOTAGE/IMAGE/LANOUVELLEVAGUE/LNV3.jpg" alt="Description" class="image">
+            <div class="footer-text">Shot on Iphone.</div>
+        </div>
+
+        <p class="about-text">
+            It’s truly a slow pace, and I’m enjoying every bit of it. Listening to ‘Georgia On My Mind’ played by Don Shirley and trying to process what’s been happening these past few months, weeks and days. 
+            There is no wave where perfection is residing in. Let the wave flow you. Trust your instincts. If you fail, that’s okay. Try to set up a mindset where you “need to fail”. Tell yourself “I need to fail, I need to fail”. It is by failing where we can keep push forward. And to fail, you just need to simply try, endless times. 
+            Many questions come like a rush of wind while creating these days. Will there ever be a breaking point? Will I continue doing this? What if it does not work? What if the people still don’t get it? Is it me? Is it the people? Or is it the bad timing? Is there even a good timing? 
+            Only thing I know that this is my time to build a solid foundation for growth. 
+        </p>
+
+        <!-- GRID-->
+        <div id="work" class="work-section">
+            <div class="media-gallery">
+                <img src="FOOTAGE/IMAGE/LANOUVELLEVAGUE/LNV1.jpg" alt="Photo 1" data-title="TRUST" data-description=" " onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/LANOUVELLEVAGUE/LNV2.jpg" alt="Photo 1" data-title="'mmmhmmmmhm'" data-description=" " onclick="openLightbox(this)">
+            </div>
+        </div>
+
+    </div> 
+
+
+
+
+        <!-- OPEN ICON + ARROW + TITLE AND DESCRIPTION-->
+        <div id="lightbox-modal" class="lightbox" aria-hidden="true" role="dialog">
+                    <span class="close" onclick="closeLightbox()">&times;</span>
+                    <span class="arrow left" onclick="changeImage(-1)">&#10094;</span>
+                    <span class="arrow right" onclick="changeImage(1)">&#10095;</span>
+                    <div class="lightbox-content">
+                        <div class="media-container">
+                            <img id="lightbox-img" class="hidden" src="" alt="">
+                            <video id="lightbox-video" class="hidden" controls>
+                                <source id="video-source" src="" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="lightbox-text">
+                            <h2 id="lightbox-title">Title</h2>
+                            <p id="lightbox-description">Description goes here.</p>
+                        </div>
+                    </div>
+        </div>           
+   
+        <div class="credits">Credits</div>
+        <div class="credit-text">Redacted by SEUNGYU JUNG JEON</div>
+        <div class="credit-text">Footage by SEUNGYU JUNG JEON</div>
+
+
+        <div id="read-more" style="display: none;">
+            <a href="archive.html">CLICK TO SEE MORE!</a>
+        </div>
+        <script>
+            window.addEventListener('scroll', () => {
+                const readMore = document.getElementById('read-more');
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                    readMore.style.display = 'block';
+                }
+            });
+        </script>
+
+
+    <div id="timer" style="position: fixed; top: 0; right: 0; padding: 10px; background: transparent; color: #939393; font-size: 12px; z-index: 9999;" > </div>
+    <div id=click-counter style=position:fixed;top:0;right:-15px;padding:25px;background-color:transparent;color:#939393;font-size:12px;z-index:9999>You clicked 0 times.</div>
+    <div id="footer" style="position: fixed; bottom: 0; right: 0px; padding: 5px; background: transparent; color: rgb(0, 0, 0); font-style: italic; font-size: 9px; z-index: 9999;">Developped by Seungyu Jung</div>
+    
+    <script src="script.js"></script> 
+</body>
+</html>

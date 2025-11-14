@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"UN1T"</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="FOOTAGE/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Homemade+Apple&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Doto:wght@100..900&family=Homemade+Apple&family=PT+Sans+Narrow:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="page-loader"></div>
+    <div id="content" style="display:none;">
+    <button id="menu-button">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </button>
+    
+    <div id="menu">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="ARCHIVE.html">ARCHIVE</a></li>
+            <li><a href="ABOUT.html">CONTACT</a></li>
+        </ul>
+    </div>
+    <header>
+        <a href="index.html" class="header-link">
+            <img src="FOOTAGE/logo.png" alt="Seungyu Jung Jeon Logo" class="header-logo">
+        </a>    
+    </header>
+    <div class="header-background-color"></div>   
+
+    <div class="about-container">
+        <h1 class="about-title">"UN1T"</h1>
+
+        <p class="about-meta">May 30, 2023</p>
+
+        <h1 class="about-subheading">BY HOMIES. TO HOMIES. LUV.</h1>
+
+    </div> 
+
+<div class="video-wrapper">
+  <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/KKpIHFAC59o?si=M6mqOjLjWu3vpdwF"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
+        <!-- OPEN ICON + ARROW + TITLE AND DESCRIPTION-->
+        <div id="lightbox-modal" class="lightbox" aria-hidden="true" role="dialog">
+                    <span class="close" onclick="closeLightbox()">&times;</span>
+                    <span class="arrow left" onclick="changeImage(-1)">&#10094;</span>
+                    <span class="arrow right" onclick="changeImage(1)">&#10095;</span>
+                    <div class="lightbox-content">
+                        <div class="media-container">
+                            <img id="lightbox-img" class="hidden" src="" alt="">
+                            <video id="lightbox-video" class="hidden" controls>
+                                <source id="video-source" src="" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="lightbox-text">
+                            <h2 id="lightbox-title">Title</h2>
+                            <p id="lightbox-description">Description goes here.</p>
+                        </div>
+                    </div>
+        </div>           
+   
+        <div class="credits">Credits</div>
+        <div class="credit-text">Featuring PAUL, SANTI M, TUKSO, ION, BILLY, ALEX, DIEGO, DANI, SANTI, VICTOR, OIHAN and IAN</div>
+        <div class="credit-text">Additional filming by OIHAN and DIEGO</div>
+        <div class="credit-text">Directed by SEUNGYU JUNG JEON</div>
+
+        <div id="read-more" style="display: none;">
+            <a href="archive.html">CLICK TO SEE MORE!</a>
+        </div>
+        <script>
+            window.addEventListener('scroll', () => {
+                const readMore = document.getElementById('read-more');
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                    readMore.style.display = 'block';
+                }
+            });
+        </script>
+
+ 
+    <div id="timer" style="position: fixed; top: 0; right: 0; padding: 10px; background: transparent; color: #939393; font-size: 12px; z-index: 9999;" > </div>
+    <div id=click-counter style=position:fixed;top:0;right:-15px;padding:25px;background-color:transparent;color:#939393;font-size:12px;z-index:9999>You clicked 0 times.</div>
+    <div id="footer" style="position: fixed; bottom: 0; right: 0px; padding: 5px; background: transparent; color: rgb(0, 0, 0); font-style: italic; font-size: 9px; z-index: 9999;">Developped by Seungyu Jung</div>    
+    <script src="script.js"></script> 
+</body>
+</html>

@@ -1,0 +1,1348 @@
+/* Cleaned up styles for body and html */
+body, html {
+    /* Sets the height of both elements to fill the viewport, a common best practice */
+    /* If you don't need this, you can safely remove these two lines */
+    height: 100%; 
+    margin: 0; /* Essential for removing default browser margins */
+    background-color: #ffffff; 
+    
+    /* Font settings - ensure these match the actual font file weights */
+    font-family: "Archivo Narrow", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    
+    /* Keep only the desired font-weight */
+    font-weight: lighter; /* Assuming you want the lighter look */
+    /* If you wanted 600, you would use: font-weight: 600; */
+}
+
+/* This is GOOD and is the key part for fixing the peeking menu issue. */
+body.menu-open {
+    overflow-x: hidden !important /* Prevents horizontal scrolling */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: rgb(0, 8, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Doto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-variation-settings:
+      "ROND" 0;
+    font-size: 24px;
+    padding: 10px 0;
+    background-color: rgba(255, 255, 255, 0); /* Optional: to prevent text overlap on scroll */
+    z-index: 4000; /* Keeps it on top of other elements */
+    letter-spacing: 0px;
+}
+
+.header-logo {
+    height: 100px;
+    margin-top: -37px;
+    width: auto;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.header-link:hover .header-logo {
+    opacity: 0.6; /* or any value between 0 (invisible) and 1 (fully visible) */
+}
+
+.header-background-color{
+    background-color: #ffffff; /* Dark blue color */
+    height: 48px;
+    position: fixed; /* Changed from sticky to fixed */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+.header-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.header-link:hover {
+    color: rgba(0, 21, 255, 0.473); /* or whatever color you want */
+}
+
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 48px;
+    background: rgb(219, 219, 219); /* Change to your preferred color */
+    z-index: 4000;
+}
+
+
+/*MENU*/
+#menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+    position: fixed;
+    top: 10px;
+    left: 5px; 
+    z-index: 9999;
+    transition: 0.3s ease-in-out;
+}
+
+/* Hamburger Lines */
+.bar {
+    width: 25px;
+    height: 2px;
+    background: rgb(0, 55, 255);
+    transition: 0.3s;
+    margin: 1px 0; /* reduced from 5px to tighten spacing */
+}
+
+/* Rotating the bars to form an "X" */
+#menu-button.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+#menu-button.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-button.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+#menu {
+    position: fixed;
+    top: 0;
+    left: -105vw; /* start fully off-screen */
+    width: 100vw; /* 100% of the viewport width */
+    /* ... rest of your styles */
+    height: 100vh;
+    background: #000;
+    transition: left 0.3s ease-in-out;
+    z-index: 5000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 5vw;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu ul li {
+    margin: 100px 0;
+}
+
+#menu ul li a {
+    font-family: "Doto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 950;
+    font-style: normal;
+    font-variation-settings:
+      "ROND" 0;
+    color: rgb(0, 25, 215);
+    text-decoration: none;
+    font-size: 80px;
+}
+
+#menu ul li:hover a {
+    color: rgb(255, 255, 255); /* Changes the link text to white on hover */
+}
+
+#menu.show {
+    left: 0;
+}
+
+
+
+
+
+
+
+/*SEARCH BAR*/
+#search-bar {
+    width: 50%;
+    max-width: 380px;
+    padding: 10px 12px;
+    margin: 80px auto 15px auto;
+    display: block;
+    font-size: 10px;
+    color: #111;
+    text-transform: uppercase;
+    background-color: #f0f0f0;
+    border: 1px solid #000;
+    border-radius: 0; /* no curves — pure 8bit */
+    outline: none;
+    image-rendering: pixelated;
+    transition: background-color 0.15s steps(2, end), border-color 0.15s steps(2, end);
+}
+
+#search-bar::placeholder {
+    color: #555;
+    opacity: 0.7;
+}
+
+#search-bar:focus {
+    border-color: #ffcc00;
+    background-color: #fffde7;
+}
+
+#search-bar:hover {
+    background-color: #e8e8e8;
+}
+
+
+
+
+/* "ARCHIVE" SECTION */
+#archive-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* This adds vertical space between year sections */
+    padding: 0.5rem 1rem; /* Minimal vertical and horizontal padding */
+    padding-top: 45px;
+}
+
+.archive-year-header {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.5rem;
+    text-align: left;
+    font-family: "Doto", sans-serif;
+    font-weight: 900;
+}
+
+.archive-year-header::after {
+    content: "▸";
+    transition: transform 0.3s;
+}
+
+.archive-year-header.open::after {
+    transform: rotate(90deg);
+    content: "▾";
+}
+
+.archive-year-header:hover {
+    color: #555;
+}
+
+.archive-grid {
+    margin-bottom: 30px;
+    display: none; /* default hidden — JS sets to grid when open */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    transition: all 0.3s ease; /* smooth open */
+}
+
+.archive-grid.open {
+    display: grid;
+}
+
+
+.archive-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+
+    /* base border setup */
+    border: 2px solid transparent; /* keeps layout stable */
+    border-radius: 0px;
+    overflow: hidden; /* ensures images don’t bleed outside border */
+    transition: border-color 0.25s ease, transform 0.2s ease;
+}
+
+.archive-item:hover {
+    border-color: #0008ff; /* outline color */
+    border-width: 1px;
+}
+
+/* make sure the image doesn’t cover the border visually */
+.archive-thumbnail {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    border-radius: 0; /* remove rounding on image so border shows cleanly */
+}
+
+.archive-title .highlight,
+.archive-content .highlight {
+    text-decoration: none;  /* Prevent underlines inside highlighted text */
+    background-color: rgb(225, 0, 255); /* or whatever highlight style you want */
+    color: inherit;
+}
+
+/* Title and description */
+.archive-title {
+    margin-top: 5px;
+    font-size: 20px;
+    font-family: "Doto", sans-serif;
+    font-weight: 900;
+    color: #0000ff;
+}
+
+.archive-content {
+    margin-top: -20px;
+    font-size: 12px;
+    color: #444;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*FADING IN - OUT ABOUT SECTION*/
+.welcome-section {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
+  }
+  
+  .left-half,
+  .right-half {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .left-content {
+    width: 80%;
+    padding: 2rem;
+    color: black;
+  }
+  
+  .page-title {
+    padding-top: 50px ;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    animation: fadeInOut 6s infinite;
+  }
+  
+  .page-subheading {
+    font-size: 0.95rem;
+    color: #666;
+    padding-bottom: 5px;    
+    animation: fadeInOut 6s infinite;
+  }
+  
+  .main-text {
+    font-size: 1.25rem;
+    animation: fadeInOut 12s infinite;
+  }
+  
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  
+  .right-half .image-slider {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+
+
+
+
+/*HOMESCREEN IMAGE*/
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);    
+    gap: 0; 
+    padding-top: 45px;
+    align-items: start; 
+}
+
+.grid-item {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto; 
+    aspect-ratio: 1/1 !important;
+    display: block;
+    object-fit: cover;
+}
+
+.grid-video{
+    width: 100%;
+    height: auto; 
+    aspect-ratio: 1/1;
+    display: block;
+    object-fit: cover;
+}
+
+.image-thumbnail-alternative-index {
+    display: none !important; 
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    background: rgba(0, 0, 0, 0.4); /* Slight dark overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.grid-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h3 {
+    margin: 0;
+    font-size: 55px;
+    text-align: left;
+    align-self: flex-start;
+}
+
+
+.bottom-left-text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-weight: lighter;
+
+
+}
+
+.bottom-left-text p {
+    margin: 0;
+    text-align: left;
+    font-size: 16px;
+}
+
+.bottom-left-text .p2 {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 20px;
+}
+
+
+/*READ MORE*/
+#read-more {
+    text-align: center;
+    padding-top: 80px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #0004ff;
+    transform: rotate(-5deg);
+    margin-top: 5px;
+    font-family: "Doto", sans-serif;
+    font-weight: 900;
+}
+
+#read-more a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.1s ease;
+
+}
+
+#read-more a:hover {
+    color: #888;
+}
+
+
+
+
+/*BOTTOM SCROLL BAR*/
+.bottom-scroll-bar {
+    width: 100%;
+    background: black;
+    color: white;
+    overflow: hidden;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.scrolling-text {
+    white-space: nowrap;
+    display: inline-block;
+    animation: scroll-left 30s linear infinite;
+    font-size: 1rem;
+    padding-left: 100%;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*ARTICLE TEXT + IMAGE LAYOUT*/
+.about-container, 
+.media-gallery-random,
+.video-container{
+    max-width: 850px;  /* Keeps a readable width */
+    width: 90%;  /* Allows flexibility for smaller screens */
+    margin: 10px auto;  /* Centers content */
+    padding: 5px;  /* Adds spacing */
+}
+
+.about-container {
+    margin: 60px auto;
+    padding: 15px;
+    text-align: center;
+}
+
+.about-title {
+    font-size: 70px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.about-subheading {
+    font-size: large;    
+    margin: 10px auto;
+    padding-top: 10px;
+    text-align: center;
+
+}
+
+.about-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.about-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: justify;
+    font-weight:lighter !important;
+}
+
+.about-text-italic {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: justify;
+    font-family:'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.about-image {
+    max-width: 100%;
+    height: auto;
+    padding-top: 25px;
+}
+
+.video-container
+{
+    height: auto;  /* Keeps aspect ratio */
+    display: block;  /* Prevents extra spacing issues */
+    margin: 0 auto;  /* Centers the video */
+    margin-top: 10px;  
+}
+
+.responsive-video {
+    width: 100%;  /* Makes the video take the full width of its container */
+    max-width: 850px;  /* Limits the maximum width */
+    height: auto;  /* Keeps aspect ratio */
+    display: block;  /* Prevents extra spacing issues */
+    margin: 0 auto;  /* Centers the video */
+    margin-top: 10px;
+}
+
+.responsive-video-availableforall {
+    width: 100%;  /* Makes the video take the full width of its container */
+    max-width: 850px;  /* Limits the maximum width */
+    height: auto;  /* Keeps aspect ratio */
+    display: block;  /* Prevents extra spacing issues */
+    margin: 0 auto;  /* Centers the video */
+    margin-top: 10px;
+}
+
+.image-thumbnail-alternative-article{
+    display: none !important;
+}
+
+.image-footer-container {
+    display: grid;
+    grid-template-rows: auto auto; /* Two rows: one for image, one for footer */
+    justify-items: end; /* Aligns the footer to the right */
+    margin: 0 auto; /* Centers the container */
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    margin: 15px 0;
+}
+
+.footer-text {
+    margin-top: -10px;
+    font-size: 12px;
+    font-style: italic;
+    color: #555;
+    overflow-wrap: break-word;    
+    padding-bottom: 10px;
+    text-align: right;
+}
+
+
+.credits{
+    max-width: 800px;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.6;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: justify;
+    width: 90%;  /* Allows flexibility for smaller screens */
+    margin: 10px auto;  /* Centers content */
+
+}
+
+.credit-text{
+    max-width: 800px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: justify;
+    width: 90%;  /* Allows flexibility for smaller screens */
+    margin: 10px auto;  /* Centers content */
+}
+
+
+
+/*MEDIA GALLERY*/
+.media-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 10px;
+    max-width: 850px;  /* Same as .about-container */
+    margin: 30px auto;
+
+}
+
+.media-gallery img,
+.media-gallery video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+    display: block;
+    transition: transform .1s ease-in-out;
+    border-radius: 0px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: optimizeQuality !important;
+    aspect-ratio: 1/1;
+
+}
+
+.media-gallery img:hover,
+.media-gallery video:hover {
+    transform: scale(1.01);
+}
+
+
+
+
+
+
+/*SPINNING CARD ANIMATION*/
+.card-container {
+    perspective: 1000px;
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    height: 80vh;  
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.card {
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d; 
+    animation: spinCard 10s infinite linear;}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;  
+}
+
+.card-front {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);  
+}
+
+@keyframes spinCard {
+    from {
+		-webkit-transform: rotateY(0deg) scale(0.45);
+        transform: rotateY(0deg) scale(0.45);
+    }
+    to {
+		-webkit-transform: rotateY(360deg) scale(0.45);
+        transform: rotateY(360deg) scale(0.45);
+    }
+}
+
+.card:hover {
+    animation-play-state: paused; /* Pause spinning while hovered */
+}
+
+
+
+/*PAGE LOADING ANIMATION*/
+#page-loader {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	opacity: 1;
+	transition: opacity .5s ease-out
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0
+	}
+
+	to {
+		opacity: 1
+	}
+}
+#content {
+	animation: .5s ease-out fadeIn
+}
+
+
+
+
+
+
+/*SELECTION TEXT*/
+::selection {
+    background-color: #ffcc00; /* Change background color */
+    color: #000; /* Change text color */
+}
+
+
+
+
+
+/* RANDOM GALLERY */
+.media-gallery-random {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 5px;
+    margin-top: -80px;
+    max-width: 800px;
+}
+
+.media-gallery-random img,
+.media-gallery-random video {
+	width: 100%;
+    aspect-ratio: 1/1;
+	object-fit: cover;
+	cursor: pointer;
+	display: block;
+	transition: transform .3s ease-in-out;
+	border-radius: 2px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	image-rendering: -webkit-optimize-contrast !important;
+	image-rendering: optimizeQuality !important
+}
+
+.media-gallery-random img:hover,
+.media-gallery-random video:hover {
+	transform: scale(1.01)
+}
+
+
+
+.arrow,.lightbox-text,.work-section{
+    text-align:center
+}
+.work-section{
+    color:#fff;
+    margin-top: 20px; /*CLOSER TO TEXT*/
+}
+
+
+.lightbox {
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background: #fff;
+	z-index: 9999;
+    position:fixed;
+    top:0
+}
+
+.arrow,
+.name {
+	position: absolute
+}
+
+.media-container {
+	width: 100%;
+	max-height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center
+}
+
+.media-container img,
+.media-container video {
+	max-width: 90%;
+	max-height: 75vh;
+	object-fit: contain
+}
+
+.lightbox-text {
+	padding-top: 5px;
+	width: 90%;
+	margin: 0 auto
+
+}
+
+h1 {
+	display: inline;
+	width: auto;
+	white-space: nowrap;
+
+}
+
+.lightbox-text h2 {
+	color: red;
+	text-align: right;
+	font-size: 30px;
+    margin: 0px;
+}
+.lightbox-text p{
+    color: red;
+	text-align: right;
+	font-size: 15px;
+    margin-top: 5px;
+
+}
+
+
+.close,
+.name {
+	border-radius: 5px;
+	right: 20px
+}
+
+.lightbox.active,
+.modal.active {
+	display: flex
+}
+
+.hidden {
+	display: none
+}
+
+.visible {
+	display: block
+}
+
+.name {
+	bottom: 20px;
+	font-size: 12px;
+	color: #000;
+	padding: 5px 10px
+}
+
+.arrow,
+.close {
+	cursor: pointer;
+	color: red
+}
+
+
+.arrow {
+	font-size: 30px;
+	line-height: center;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 1001
+}
+
+.arrow::before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	right: -10px;
+	bottom: -10px;
+}
+
+
+.arrow:active {
+	background-color: transparent
+}
+
+.arrow.left,
+.arrow.right,
+.close {
+	position: absolute;
+	z-index: 1050;
+	cursor: pointer
+}
+
+.close {
+	position: fixed;
+	top: 50px;
+	z-index: 1100;
+	font-size: 24px;
+	background: 0 0;
+	padding: 5px 10px
+}
+
+.arrow.left {
+	left: 20px;
+	top: 50%
+}
+
+.arrow.right {
+	right: 20px;
+	top: 50%
+}
+
+
+
+
+
+/*"PREVIOUS ABOUT ME TEXT"*/
+#previous-about-texts {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+    padding: 15px;
+}
+
+.pdf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    justify-content: center;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.pdf-item {
+    display: block;
+    padding: 12px;
+    background: #f0f0f0;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.pdf-item:hover {
+    background: #0000ff;
+    color: white;
+    transform: scale(1.05);
+}
+
+
+
+
+/*YOUTUBE (BIG SIZE) + VIMEO LAYOUT*/
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    aspect-ratio: 16 / 9;
+    padding-top: -20px;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.vimeo-wrapper {
+    aspect-ratio: 4 / 3; /* You can also use 4 / 3 or let the browser handle it */
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto; /* Remove the 2rem spacing */
+    margin-top: 15px;
+    max-width: 850px; /* Optional: limits width on large screens */
+  }
+  
+.vimeo-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+
+@media (max-width: 768px) {
+    #menu {
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;    /* This CENTERS the <ul> horizontally */
+        padding-left: 0; /*cancels out the default padding left*/
+    }
+
+    #menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        /* Ensure the list takes up the full width to align text correctly */
+        width: 100%;            
+    }
+
+    #menu ul li {
+        margin: 100px 0;
+        /* This CENTERS the link text (the displayed element) */
+        text-align: center;     
+    }
+    /* ... rest of your link styles ... */
+
+    #menu.show {
+        left: 0;
+    }
+    #menu ul li a {
+        font-size: 50px;
+    }
+
+    .archive-title {
+        font-size: 12px;
+    }
+
+    .archive-grid {
+        grid-template-columns: repeat(2, 1fr);    
+    }
+
+    .welcome-section {
+        flex-direction: column;
+        height: auto; 
+    }
+    
+    .left-half,
+    .right-half {
+        width: 100%;
+        height: auto;
+        flex: none;
+        margin: 0; /* Ensures no space around the half */
+        padding: 0; /* Ensures no space around the half */
+    }
+    
+    .right-half {
+        order: -1; 
+    }
+    
+    .right-half .image-slider {
+        aspect-ratio: 1 / 1;
+        height: auto;
+        /* scale: 0.6; <-- REMOVED THIS LINE */
+        width: 100%; /* Ensure it fills the container */
+    }
+    
+    .left-content {
+        /* This padding is *inside* the left-half and won't create separation */
+        width: 90%; 
+        padding: 1rem;
+        text-align: center;
+    }
+    
+    .page-title {
+        position: static;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+    
+      .main-text {
+        margin-top: 1rem;
+        font-size: 1.1rem;
+      }
+    
+      .page-subheading {
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+      }
+
+    .card-container {
+        height: 40vh;  
+    }
+    .card {
+        transform: scale(0.25); /* Smaller scale for small screens */
+        animation-name: spinCardSmall; /* Define a different animation for small screens if needed */
+    }
+
+
+    @keyframes spinCardSmall {
+        from {
+            transform: rotateY(0deg) scale(0.25); /* Include scale in animation keyframes */
+        }
+        to {
+            transform: rotateY(360deg) scale(0.25);
+        }
+    }
+
+    .card:hover {
+        /* Override the 'paused' state and set it back to 'running' */
+        animation-play-state: running !important;
+    }
+    
+	#click-counter,
+	#timer {
+		display: none
+	}
+
+    .arrow {
+		font-size: 25px
+	}
+
+    .media-gallery {
+
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .media-gallery-random{
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .about-title {
+        font-size: 40px;
+        white-space: normal;
+    }
+
+
+    .media-container img,
+    .media-container video {
+	max-width: 80%;
+	max-height: 75vh;
+	object-fit: contain
+    }
+
+
+    .lightbox-text {
+        padding-top: 5px;
+        width: 80%;
+        margin: 0 auto
+    }
+
+    .lightbox-text h2 {
+        color: red;
+        text-align: right;
+        font-size: 25px;
+        margin: 0px;
+    }
+    .lightbox-text p{
+        color: red;
+        text-align: right;
+        font-size: 12px;
+        margin-top: 5px;
+    
+    }
+
+
+    .image-thumbnail-alternative-index{    
+        width: 100%;
+        height: auto; 
+        aspect-ratio: 1/1;
+        display: block !important;
+        object-fit: cover;
+    }
+
+
+    .grid-video{
+        display: none !important;
+    }
+
+    .video-wrapper {
+        width: 98%;
+        margin: 10px auto;
+    }
+
+
+    .instagram-container {
+          flex-direction: column;
+          align-items: center;
+    }
+      
+    .instagram-container iframe {
+          width: 100% !important;
+          max-width: 360px; /* typical phone width */
+    }
+
+    .responsive-video{
+            display: none;
+    }
+    
+    .image-thumbnail-alternative-article{
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            display:block !important;
+    }
+
+    .about-text {
+    text-align: left;    
+    }
+
+ 
+
+
+    header {
+       font-size: 18px;
+       padding: 12px 0;
+
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);    
+    }
+
+    .overlay {
+        opacity: 1 !important; /* Force visible */
+        background: rgba(0, 0, 0, 0.4); /* You can still keep a background if you want */
+    }
+
+    .overlay h3 {
+        margin: 0;
+        font-size: 25px;
+        text-align: left;
+        align-self: flex-start;
+    }
+    
+    .bottom-left-text p {
+    display: none;
+    }
+
+    .credits{
+        font-size: 10px;
+    }
+    
+    .credit-text{
+        font-size: 15px;
+    }
+
+    
+    .archive-content{
+        font-size: 9px;
+        margin-top: -10px;
+    }
+
+    #read-more {
+        font-size: 25px;
+    }
+}
+    
+@media (min-width: 2160px) {
+
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(1000px, 1fr)); 
+    }
+}
+
+@media (max-height: 480px) {
+        body {
+          height: 100vh;
+          width: 100vw;
+          background: url('FOOTAGE/smallscreendetector.jpg') center center / contain no-repeat white !important;
+          overflow: hidden;
+        }
+  
+    #content,
+    header,
+    .grid-container,
+    .bottom-scroll-bar,
+    #read-more,
+    #menu-button,
+    #menu,
+    #timer,
+    #click-counter,
+    #footer {
+      display: none !important;
+    }
+}

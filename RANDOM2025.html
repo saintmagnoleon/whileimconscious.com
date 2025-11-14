@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RANDOM (2025)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="FOOTAGE/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Homemade+Apple&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Doto:wght@100..900&family=Homemade+Apple&family=PT+Sans+Narrow:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="progress-bar"></div>
+    <div id="page-loader"></div>
+    <div id="content" style="display:none;">
+    <button id="menu-button">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </button>
+    
+    <div id="menu">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="ARCHIVE.html">ARCHIVE</a></li>
+            <li><a href="ABOUT.html">CONTACT</a></li>
+        </ul>
+    </div>
+
+    <header>
+        <a href="index.html" class="header-link">
+            <img src="FOOTAGE/logo.png" alt="Seungyu Jung Jeon Logo" class="header-logo">
+        </a>    
+    </header>
+    
+    <div class="header-background-color"></div>   
+
+
+
+    <div class="about-container">
+        <h1 class="about-title">RANDOM 2025</h1>
+
+        <p class="about-meta">March 28, 2025. 18:30</p>
+
+    </div> 
+ 
+        <!-- GRID-->
+        <div id="work" class="work-section">
+            <div class="media-gallery-random">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/mewithhoodie.jpg" alt="Photo 1" data-title="JEANS" data-description="silhouette" onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/bellevillenoodles.jpg" alt="Photo 1" data-title="'G2'" data-description="good food makes you think good" onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/centralcee.jpg" alt="Photo 1" data-title="'CAN'T RUSH GREATNESS'" data-description="contemporary philosopher." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/benzman.jpg" alt="Photo 1" data-title="BENZOMAN" data-description="can't go wrong with a black benz." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/meissue3blackberry.jpg" alt="Photo 1" data-title="ISSUE 3" data-description="how many issues do i have to make to relate my issue to others? read that again." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/pyramidesvintagecar.jpg" alt="Photo 1" data-title="CAR_CAR" data-description="me like car go vroom vroom." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/toilettedetontonolivier.jpg" alt="Photo 1" data-title="PONDER IN THE TOILET" data-description="i like the interior." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/mewithwine.jpg" alt="Photo 1" data-title="CHARDONNAY" data-description="Wine. An essential." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/motohonda.jpg" alt="Photo 1" data-title="MOTO_PAPI" data-description="cream white palatte. i like it." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/me.jpg" alt="Photo 1" data-title="BIG_MAN_TING" data-description="SITTING ON BUSINESS." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/VIDEO THUMBNAILS/buzzcut.jpg" alt="Photo 1" data-title="BUZZ" data-description="color inversion." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/golf.jpg" alt="Photo 1" data-title="LOWRIDER GOLF" data-description="put on some Three 6 Mafia and it's a vibe! " onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/mebrushingmateeth.png" alt="Photo 1" data-title="RIO DE JANEIRO" data-description="do meu coração." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/gaelbehindthescenesforadvert.JPG" alt="Photo 1" data-title="BIG DREAMS AHEAD" data-description="this man will become one of the greatest actors. trust." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/melookingthroughthewindow.jpg" alt="Photo 1" data-title="SUNSET" data-description="these moments where God tells u to keep going no matter what." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/parisviewfromcentrepompidou.jpg" alt="Photo 1" data-title="I LOVE NEW YORK" data-description="the leaning tower of pisa is beautiful." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/matrixvibeman.jpg" alt="Photo 1" data-title="NEO_NEO_NEO" data-description="red pill." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/RANDOM 2025/mitadmitad.JPG" alt="Photo 1" data-title="MITAD_반" data-description="heredity." onclick="openLightbox(this)">
+
+
+            </div>
+        </div>
+
+        <!-- OPEN ICON + ARROW + TITLE AND DESCRIPTION-->
+        <div id="lightbox-modal" class="lightbox" aria-hidden="true" role="dialog">
+                    <span class="close" onclick="closeLightbox()">&times;</span>
+                    <span class="arrow left" onclick="changeImage(-1)">&#10094;</span>
+                    <span class="arrow right" onclick="changeImage(1)">&#10095;</span>
+                    <div class="lightbox-content">
+                        <div class="media-container">
+                            <img id="lightbox-img" class="hidden" src="" alt="">
+                            <video id="lightbox-video" class="hidden" controls>
+                                <source id="video-source" src="" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="lightbox-text">
+                            <h2 id="lightbox-title">Title</h2>
+                            <p id="lightbox-description">Description goes here.</p>
+                        </div>
+                    </div>
+        </div>           
+
+        <div class="credits">Credits</div>
+        <div class="credit-text">Media by SEUNGYU JUNG JEON</div>
+
+        <div id="read-more" style="display: none;">
+            <a href="archive.html">CLICK TO SEE MORE!</a>
+        </div>
+        <script>
+            window.addEventListener('scroll', () => {
+                const readMore = document.getElementById('read-more');
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                    readMore.style.display = 'block';
+                }
+            });
+        </script>
+   
+ 
+    <div id="timer" style="position: fixed; top: 0; right: 0; padding: 10px; background: transparent; color: #939393; font-size: 12px; z-index: 9999;" > </div>
+    <div id=click-counter style=position:fixed;top:0;right:-15px;padding:25px;background-color:transparent;color:#939393;font-size:12px;z-index:9999>You clicked 0 times.</div>
+    <div id="footer" style="position: fixed; bottom: 0; right: 0px; padding: 5px; background: transparent; color: rgb(0, 0, 0); font-style: italic; font-size: 9px; z-index: 9999;">Developped by Seungyu Jung</div>    
+    <script src="script.js"></script> 
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"THE BARRACKS"</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="FOOTAGE/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Homemade+Apple&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Doto:wght@100..900&family=Homemade+Apple&family=PT+Sans+Narrow:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+    
+<body>
+    <div id="progress-bar"></div>
+    <div id="page-loader"></div>
+    <div id="content" style="display:none;">
+    <button id="menu-button">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </button>
+    
+    <div id="menu">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="ARCHIVE.html">ARCHIVE</a></li>
+            <li><a href="ABOUT.html">CONTACT</a></li>
+        </ul>
+    </div>
+    <header>
+        <a href="index.html" class="header-link">
+            <img src="FOOTAGE/logo.png" alt="Seungyu Jung Jeon Logo" class="header-logo">
+        </a>    
+    </header>
+
+    <div class="header-background-color"></div>   
+
+
+    <div class="about-container">
+        <h1 class="about-title">"THE BARRACKS"</h1>
+
+        <p class="about-meta">March 26, 2025. 15:01</p>
+
+        <h1 class="about-subheading">ASSISTED BY R4TPUNKI</h1>
+
+        <div class="image-footer-container">
+            <img src="FOOTAGE/IMAGE/THE BARRACKS/lanouvellevague.avif" alt="Description" class="image">
+            <div class="footer-text">"LA NOUVELLE VAGUE" ASSISTED BY R4TPUNKI</div>
+        </div>
+
+        <p class="about-text-italic">
+            “I think people that are consumed by ego is because they don’t have self love. Narcissism and egocentrism are born out of that; the fact that they don’t feel listened, they don’t feel valued, they don’t feel appreciated... In response, they amplify their ego, which was already present, pushing it further until they become an egocentric and a narcissist. But deep down, what truly drives this behaviour is the fear of not being accepted.”
+        </p>
+
+        <div class="image-footer-container">
+            <img src="FOOTAGE/IMAGE/THE BARRACKS/santi9.avif" alt="Description" class="image">
+            <div class="footer-text">Extracted from @seungyujung via ig</div>
+        </div>
+
+        <p class="about-text">
+            Some months ago Santi told me about this abandoned building that used to be an old barracks of La Guardia Civil. So I had my 35 millimeter film Canon AE1-Program and an Ilford black-and-white roll with me. I thought everything was going to run smoothly but guess what? A squeaky faulty shutter had to occur at the best moment. Fate had other plans. 
+        </p>
+
+        <p class="about-text">
+            I didn’t realize it until I got my film developed. There I was, sitting in front of my laptop, stunned, staring at unexpected light leaks. But here’s the twist: those leaks somehow landed in just the right places. Hence, I was able to experiment and manipulate the colors. I call it "A Beautyful Accident". Accidents like this make you defy how you are going to maneuver out of it.
+        </p>
+        <p class="about-text">
+            Accidents like this prove if you have the potential to adapt and push those creative boundaries that you set up by yourself. I’m actually even happy that the camera broke, the result speaks for itself. And to me, that’s all that matters.
+        </p>
+
+        <!-- GRID-->
+        <div id="work" class="work-section">
+            <div class="media-gallery">
+                <img src="FOOTAGE/IMAGE/THE BARRACKS/MODERN_TAOISM.avif" alt="Photo 1" data-title="'MODERN TAOISM'" data-description="THE BREAKTHROUGH." onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/THE BARRACKS/santi8.avif" alt="Photo 1" data-title="ORANGE_RED" data-description=" " onclick="openLightbox(this)">
+
+                <img src="FOOTAGE/IMAGE/THE BARRACKS/santi4.avif" alt="Photo 1" data-title="WHITE_VIOLET" data-description=" " onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/THE BARRACKS/santi5.avif" alt="Photo 1" data-title="WHITE_RED" data-description=" " onclick="openLightbox(this)">
+                <img src="FOOTAGE/IMAGE/THE BARRACKS/santi6.avif" alt="Photo 1" data-title="'LA NOUVELLE VAGUE' (DETAIL)" data-description=" " onclick="openLightbox(this)">
+
+            </div>
+        </div>
+
+        <div class="credits">Credits</div>
+        <div class="credit-text">Assisted by R4TPUNKI</div>
+        <div class="credit-text">Redacted by SEUNGYU JUNG JEON</div>
+        <div class="credit-text">Footage by SEUNGYU JUNG JEON</div>
+
+</div> 
+
+
+        <!-- OPEN ICON + ARROW + TITLE AND DESCRIPTION-->
+        <div id="lightbox-modal" class="lightbox" aria-hidden="true" role="dialog">
+                    <span class="close" onclick="closeLightbox()">&times;</span>
+                    <span class="arrow left" onclick="changeImage(-1)">&#10094;</span>
+                    <span class="arrow right" onclick="changeImage(1)">&#10095;</span>
+                    <div class="lightbox-content">
+                        <div class="media-container">
+                            <img id="lightbox-img" class="hidden" src="" alt="">
+                            <video id="lightbox-video" class="hidden" controls>
+                                <source id="video-source" src="" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="lightbox-text">
+                            <h2 id="lightbox-title">Title</h2>
+                            <p id="lightbox-description">Description goes here.</p>
+                        </div>
+                    </div>
+        </div>           
+
+
+        <div id="read-more" style="display: none;">
+            <a href="archive.html">CLICK TO SEE MORE!</a>
+        </div>
+        <script>
+            window.addEventListener('scroll', () => {
+                const readMore = document.getElementById('read-more');
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                    readMore.style.display = 'block';
+                }
+            });
+        </script>
+    
+    <div id="timer" style="position: fixed; top: 0; right: 0; padding: 10px; background: transparent; color: #939393; font-size: 12px; z-index: 9999;" > </div>
+    <div id=click-counter style=position:fixed;top:0;right:-15px;padding:25px;background-color:transparent;color:#939393;font-size:12px;z-index:9999>You clicked 0 times.</div>
+    <div id="footer" style="position: fixed; bottom: 0; right: 0px; padding: 5px; background: transparent; color: rgb(0, 0, 0); font-style: italic; font-size: 9px; z-index: 9999;">Developped by Seungyu Jung</div>    
+    
+    <script src="script.js"></script> 
+</body>
+</html>
