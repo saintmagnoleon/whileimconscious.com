@@ -107,7 +107,7 @@ header {
 .bar {
     width: 25px;
     height: 2px;
-    background: rgb(0, 55, 255);
+    background: rgb(0, 0, 0);
     transition: 0.3s;
     margin: 1px 0; /* reduced from 5px to tighten spacing */
 }
@@ -132,7 +132,7 @@ header {
     width: 100vw; /* 100% of the viewport width */
     /* ... rest of your styles */
     height: 100vh;
-    background: #000;
+    background: #ffffff;
     transition: left 0.3s ease-in-out;
     z-index: 5000;
     display: flex;
@@ -159,13 +159,13 @@ header {
     font-style: normal;
     font-variation-settings:
       "ROND" 0;
-    color: rgb(0, 25, 215);
+    color: rgb(0, 0, 0);
     text-decoration: none;
     font-size: 80px;
 }
 
 #menu ul li:hover a {
-    color: rgb(255, 255, 255); /* Changes the link text to white on hover */
+    color: rgb(0, 0, 255); /* Changes the link text to white on hover */
 }
 
 #menu.show {
@@ -322,59 +322,64 @@ header {
 
 /*FADING IN - OUT ABOUT SECTION*/
 .welcome-section {
+    /* Keep the main section layout */
     display: flex;
     height: 100vh;
     width: 100%;
     background-color: rgb(255, 255, 255);
     overflow: hidden;
-  }
-  
-  .left-half,
-  .right-half {
-    flex: 1;
+}
+
+.left-half {
+    /* Changed from flex: 1 to width: 100% to fill the section */
+    /* and removed the flex property for proportional sizing. */
+    width: 100%; 
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-  }
-  
-  .left-content {
-    width: 80%;
+    /* Removed the following obsolete properties:
+    flex: 1;
+    */
+}
+
+/* Removed the .right-half selector as the element is gone. */
+
+.left-content {
+    /* Adjusted width to allow content to span more of the page */
+    /* Consider using a max-width for better readability on very wide screens. */
+    width: 60%; 
+    max-width: 800px; /* Optional: Sets a maximum width for comfortable reading */
     padding: 2rem;
     color: black;
-  }
-  
-  .page-title {
+}
+
+.page-title {
     padding-top: 50px ;
     font-size: 2rem;
     margin-bottom: 0.5rem;
     animation: fadeInOut 6s infinite;
-  }
-  
-  .page-subheading {
+}
+
+.page-subheading {
     font-size: 0.95rem;
     color: #666;
     padding-bottom: 5px;    
     animation: fadeInOut 6s infinite;
-  }
-  
-  .main-text {
+}
+
+.main-text {
     font-size: 1.25rem;
     animation: fadeInOut 12s infinite;
-  }
-  
-  @keyframes fadeInOut {
+}
+
+@keyframes fadeInOut {
     0%, 100% { opacity: 0; }
     50% { opacity: 1; }
-  }
-  
-  .right-half .image-slider {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    transition: opacity 0.5s ease-in-out;
-  }
+}
+
+/* Removed the .right-half .image-slider styles as they are no longer relevant. */
+
 
 
 
@@ -1102,42 +1107,44 @@ h1 {
         grid-template-columns: repeat(2, 1fr);    
     }
 
-    .welcome-section {
+.welcome-section {
         flex-direction: column;
         height: auto; 
+        /* 💥 INCREASED TOP PADDING */
+        padding: 90px 0 30px 0; 
     }
-    
-    .left-half,
-    .right-half {
+
+    .left-half {
+        /* Keep only what is necessary, but this may even be redundant
+           if you adjust .welcome-section correctly.
+           Setting it to 100% is a safe change. */
         width: 100%;
         height: auto;
         flex: none;
-        margin: 0; /* Ensures no space around the half */
-        padding: 0; /* Ensures no space around the half */
+        margin: 0; 
+        padding: 0; 
     }
     
-    .right-half {
-        order: -1; 
-    }
-    
-    .right-half .image-slider {
-        aspect-ratio: 1 / 1;
-        height: auto;
-        /* scale: 0.6; <-- REMOVED THIS LINE */
-        width: 100%; /* Ensure it fills the container */
-    }
-    
-    .left-content {
-        /* This padding is *inside* the left-half and won't create separation */
+.left-content {
         width: 90%; 
         padding: 1rem;
-        text-align: center;
+        /* Change this from center to left */
+        text-align: left; 
+        margin: 0 auto; 
     }
     
+    /* You may also want to check the specific text elements below 
+       to ensure no individual text property is overriding this. */
+    /* The page title is fine as it doesn't have a specific text-align: */
     .page-title {
         position: static;
         font-size: 1.5rem;
         margin-top: 1rem;
+    }
+    
+    /* The about text needs to be checked */
+    .about-text {
+        text-align: left; /* This is good and ensures left alignment */
     }
     
       .main-text {
