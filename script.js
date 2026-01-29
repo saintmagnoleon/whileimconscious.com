@@ -217,7 +217,7 @@ const archiveData = [
     },
 
     { 
-        title: "'LA NOUVELLE VAGUE'", 
+        title: "'PÉRIODE BLEU'", 
         year: 2025, 
         content: "April 12, 2025", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/lanouvellevagueinstapost.jpg",
