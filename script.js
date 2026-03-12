@@ -200,12 +200,47 @@ function filterArchive(query) {
 
 const archiveData = [
 
+
+    { 
+        title: "BOJVCK OUTTA MOTHERLAND", 
+        year: 2026, 
+        content: "January 23, 2026", 
+        thumbnail: "FOOTAGE/IMAGE/2026/BOJVCK_OUTTA_MOTHERLAND/bojvckthumbnail.jpg",
+        link: "2026JANUARY_BOJVCK_OUTTAMOTHERLAND.html" 
+    },
+
+
+        { 
+        title: "WRECK IT REKK!", 
+        year: 2026, 
+        content: "January 18, 2026", 
+        thumbnail: "FOOTAGE/IMAGE/2026/WRECK_IT_REKK/senegalbonnetthumbnail.jpg",
+        link: "2026JANUARY_WRECKITREKK.html" 
+    },
+
+
+    { 
+        title: "OJOS DE 2016", 
+        year: 2025, 
+        content: "December 22, 2026", 
+        thumbnail: "FOOTAGE/IMAGE/2025/OJOS_DE_2016/ojosde2016thumbnail.jpg",
+        link: "2025OJOSDE2016.html" 
+    },
+
+    { 
+        title: "I AM PRADA OF YOU", 
+        year: 2025, 
+        content: "December 26, 2025", 
+        thumbnail: "FOOTAGE/IMAGE/2025/I_AM_PRADA_OF_YOU/iampradaofyouthumbnail.jpg",
+        link: "2025IAMPRADAOFYOU.html" 
+    },
+
     { 
         title: "EXPERIENCED AMATEUR", 
         year: 2025, 
         content: "October 2, 2025", 
         thumbnail: "FOOTAGE/IMAGE/BLUEWALLPHOTOSHOOTCHOISY/leopoldthumbnail.jpg",
-        link: "EXPERIENCED_AMATEUR.html" 
+        link: "2025EXPERIENCED_AMATEUR.html" 
     },
 
     { 
@@ -213,36 +248,36 @@ const archiveData = [
         year: 2025, 
         content: "June 6, 2025", 
         thumbnail: "FOOTAGE/IMAGE/MUTATED JUNGLE/homethumbnail.jpg",
-        link: "MUTATED_JUNGLE.html" 
+        link: "2025MUTATED_JUNGLE.html" 
     },
 
     { 
-        title: "'PÉRIODE BLEU'", 
+        title: "PÉRIODE BLEUE", 
         year: 2025, 
         content: "April 12, 2025", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/lanouvellevagueinstapost.jpg",
-        link: "LA_NOUVELLE_VAGUE.html" 
+        link: "2025PERIODE_BLEUE.html" 
     },
     { 
-        title: "ISSUE #3", 
+        title: "ECDYSIS ISSUE", 
         year: 2025, 
         content: "March 3, 2025", 
         thumbnail: "FOOTAGE/IMAGE/VIDEO THUMBNAILS/gaelreadingissue3.jpg",
-        link: "ISSUE3.html" 
+        link: "2025ECDYSIS.html" 
     },
     { 
         title: "RANDOM 2025", 
         year: 2025, 
         content: "March 28, 2025", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/melookingthruthewindow2.jpg",
-        link: "RANDOM2025.html"
+        link: "2025RANDOM2025.html"
     },
     { 
         title: "'ANTHROPOCÈNE'", 
         year: 2024, 
         content: "August 19, 2024", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/eneko.avif",
-        link: "ANTHROPOCENE.html" 
+        link: "2024ANTHROPOCENE.html" 
     },
 
     { 
@@ -250,7 +285,7 @@ const archiveData = [
         year: 2024, 
         content: "May 12, 2024", 
         thumbnail: "FOOTAGE/IMAGE/ACWS/santi_squared.jpg",
-        link: "ACWS.html" 
+        link: "2024ACWS.html" 
     },
 
     { 
@@ -258,49 +293,57 @@ const archiveData = [
         year: 2024, 
         content: "May 5, 2024", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/chaeyu1.avif",
-        link: "BOUQUET DE FLEURS.html"
+        link: "2024BOUQUET DE FLEURS.html"
     },
     { 
         title: "'SANS TITRE'", 
         year: 2024, 
         content: "March 26, 2024", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/milan2.avif",
-        link: "SANS TITRE.html"
+        link: "2024SANS_TITRE.html"
     },
     { 
         title: "'THE BARRACKS'", 
         year: 2024, 
         content: "March 26, 2024", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/lanouvellevague.avif",
-        link: "THE BARRACKS.html"
+        link: "2024THE_BARRACKS.html"
     },
     { 
-        title: "'BLIND-SELF-RELIANCE'", 
+        title: "'BLIND SELF RELIANCE'", 
         year: 2024, 
         content: "April 12, 2024", 
         thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/diego.jpg",
-        link: "BLIND-SELF-RELIANCE.html" 
+        link: "2024BLIND_SELF_RELIANCE.html" 
     },
     { 
         title: "RANDOM 2024", 
         year: 2024, 
         content: "December 31, 2024", 
         thumbnail: "FOOTAGE/IMAGE/RANDOM 2024/ladybird.jpg",
-        link: "RANDOM2024.html" 
+        link: "2024RANDOM2024.html" 
     },
     { 
-        title: "ISSUE #2", 
+        title: "FICDB ISSUE", 
         year: 2024, 
         content: "February 2, 2024", 
         thumbnail: "FOOTAGE/IMAGE/VIDEO THUMBNAILS/eyesissue2.jpg",
-        link: "ISSUE2.html" 
+        link: "2024FICDB.html" 
     },
     { 
         title: "'UN1T' DIRECTED BY SEUNGYU JUNG", 
         year: 2023, 
         content: "May 30, 2023", 
         thumbnail: "FOOTAGE/IMAGE/VIDEO THUMBNAILS/un1t.jpg",
-        link: "UN1T.html" 
+        link: "2023UN1T.html" 
+    }
+
+    , { 
+        title: "The Refusal of The Creation", 
+        year: 2023, 
+        content: "June 3, 2023", 
+        thumbnail: "FOOTAGE/IMAGE/THEREFUSALOFTHECREATION/therefusalofthecreationthumbnail.jpg",
+        link: "2023THE_REFUSAL_of_THE_CREATION.html" 
     }
 ];
 

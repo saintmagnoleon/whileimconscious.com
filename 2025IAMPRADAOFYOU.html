@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I AM PRADA OF YOU!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="FOOTAGE/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Homemade+Apple&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Doto:wght@100..900&family=Homemade+Apple&family=PT+Sans+Narrow:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="progress-bar"></div>
+    <div id="page-loader"></div>
+    <div id="content" style="display:none;">
+
+
+    <header>
+        <a href="index.html" class="header-link">
+            <img src="FOOTAGE/logo.png" alt="Seungyu Jung Jeon Logo" class="header-logo">
+        </a>    
+    </header>
+    <div class="header-background-color"></div>   
+
+    <div class="about-container">
+        <h1 class="about-title"><i>I AM PRADA OF YOU!</i></h1>
+
+        <p class="about-meta">January 18, 2026</p>
+
+        <h1 class="about-subheading">P R O U D</h1>
+
+        <div class="image-footer-container">
+            <img src="FOOTAGE/IMAGE/2025/I_AM_PRADA_OF_YOU/iampradaofyou.jpg" alt="Description" class="image">
+            <div class="footer-text">I AM PRADA OF YOU!</div>
+        </div>
+
+        <p class="about-text">
+        This was the second and last photo project I did before going back to Paris. I called Atila to come with his blue Volkswagen Touran 2006, as well as my homie Tukso.
+        <br> 
+        Always proud of what I showcase to the public. People might not understand it right now. But it’s okay. It’s not for them, it’s for me. This whole first issue has been a sort of a public manifesto. 
+        The trajectory to make this magazine to life has not been linear. 
+        No work with intention has a linear trajectory.
+        These last few months, there’s been: long breaks, times where I distracted myself, times of self-doubt, and times where I suddenly had a huge wave of ideas and had to seize the right one among hundreds... 
+        And all of that is done, while i am conscious. 
+
+        It’s a blessing. 
+        Brick by brick.
+
+        WIC ain’t for the weak.        
+        </p>
+
+        <div class="image-footer-container">
+            <img src="FOOTAGE/IMAGE/2025/I_AM_PRADA_OF_YOU/blackairforceenergy.jpg" alt="Description" class="image">
+            <div class="footer-text">Black_Air_Force_Energy_blackberry.jpg</div>
+        </div>
+
+        <p class="about-text">
+        These last few months, there’s been: long breaks, times where I distracted myself, times of self-doubt, and times where I suddenly had a huge wave of ideas and had to seize the right one among hundreds... 
+        <br>
+        And all of that is done, while i am conscious. 
+        <br>
+        It’s a blessing. 
+        <br>
+        Brick by brick.
+        <br>
+        <br>
+        WIC ain’t for the weak.        
+        </p>
+
+
+
+
+
+        <div class="image-footer-container">
+            <img src="FOOTAGE/IMAGE/2025/I_AM_PRADA_OF_YOU/cabosse.jpg" alt="Description" class="image">
+            <div class="footer-text">CABOSSÉ</div>
+        </div>
+
+        <div class="image-footer-container">
+            <img src="FOOTAGE/IMAGE/2025/I_AM_PRADA_OF_YOU/dragonfly.jpg" alt="Description" class="image">
+            <div class="footer-text">DRAGONFLY</div>
+        </div>
+
+    </div> 
+
+
+
+        <!-- OPEN ICON + ARROW + TITLE AND DESCRIPTION-->
+        <div id="lightbox-modal" class="lightbox" aria-hidden="true" role="dialog">
+                    <span class="close" onclick="closeLightbox()">&times;</span>
+                    <span class="arrow left" onclick="changeImage(-1)">&#10094;</span>
+                    <span class="arrow right" onclick="changeImage(1)">&#10095;</span>
+                    <div class="lightbox-content">
+                        <div class="media-container">
+                            <img id="lightbox-img" class="hidden" src="" alt="">
+                            <video id="lightbox-video" class="hidden" controls>
+                                <source id="video-source" src="" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="lightbox-text">
+                            <h2 id="lightbox-title">Title</h2>
+                            <p id="lightbox-description">Description goes here.</p>
+                        </div>
+                    </div>
+        </div>           
+   
+        <div class="credits">Credits</div>
+        <div class="credit-text">MODEL Atila Odriozola & Tugsbileg Sukhee</div>
+        <div class="credit-text">CAMERA ASSISTANT Munkhtselmeg Dorjmijir</div>
+        <div class="credit-text">PHOTO Seungyu Jung</div>
+
+        <div id="read-more" style="display: none;">
+            <a href="archive.html">CLICK TO SEE MORE!</a>
+        </div>
+        <script>
+            window.addEventListener('scroll', () => {
+                const readMore = document.getElementById('read-more');
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                    readMore.style.display = 'block';
+                }
+            });
+        </script>
+
+ 
+    <div id="timer" style="position: fixed; top: 0; right: 0; padding: 10px; background: transparent; color: #939393; font-size: 12px; z-index: 9999;" > </div>
+    <div id=click-counter style=position:fixed;top:0;right:-15px;padding:25px;background-color:transparent;color:#939393;font-size:12px;z-index:9999>You clicked 0 times.</div>
+    <div id="footer" style="position: fixed; bottom: 0; right: 0px; padding: 5px; background: transparent; color: rgb(0, 0, 0); font-style: italic; font-size: 9px; z-index: 9999;">Developped by Seungyu Jung</div>    
+    <script src="script.js"></script> 
+</body>
+</html>

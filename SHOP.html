@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOP | WIC</title>
+    
+    <link href="FOOTAGE/favicon.png" rel="icon" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Doto:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Standalone CSS for the Shop Page */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: "Archivo Narrow", sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .shop-status {
+            font-family: "helvetica neue", sans-serif;
+            font-size: 80px;
+            font-weight: 900;
+            color: rgb(0, 13, 255); /* Pure Red */
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        /* The flashing computer cursor */
+        .blinking-cursor {
+            color: #000;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .sub-text {
+            font-size: 1.5rem;
+            font-weight: lighter;
+            margin-bottom: 50px;
+            max-width: 600px;
+            padding: 0 20px;
+            line-height: 1.4;
+        }
+
+        /* Brutalist Button */
+        .back-btn {
+            font-family: "Doto", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: rgb(0, 8, 255); /* WIC Blue */
+            text-decoration: none;
+            border: 3px solid rgb(0, 8, 255);
+            padding: 15px 30px;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background-color: rgb(0, 8, 255);
+            color: #ffffff;
+        }
+
+        /* Bottom Marquee */
+        .marquee-container {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #000;
+            color: #fff;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .scrolling-text {
+            white-space: nowrap;
+            display: inline-block;
+            animation: scroll-left 15s linear infinite;
+            font-family: "Doto", sans-serif;
+            font-size: 1rem;
+            padding-left: 100%;
+        }
+
+        @keyframes scroll-left {
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+
+            .shop-status {
+                font-size: 35px;
+            }
+
+            .sub-text {
+                font-size: 12px;
+                margin-bottom: 40px;
+            }
+            .back-btn {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="shop-status">WIC is currently prioritising <br> <i>HAND 2 HAND</i> service<span class="blinking-cursor">!</span></h1>
+    
+    <p class="sub-text">ONLINE SHOP COMING SOON. Or maybe not. haha.</p>
+
+    <a href="index.html" class="back-btn">GO HOME</a>
+
+    <div class="marquee-container"> 
+        <div class="scrolling-text">
+            <span>SHOP UNAVAILABLE. NO TRANSACTIONS PENDING. SYSTEM OFFLINE. // SHOP UNAVAILABLE. NO TRANSACTIONS PENDING. SYSTEM OFFLINE.</span>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -7,7 +7,7 @@ body, html {
     background-color: #ffffff; 
     
     /* Font settings - ensure these match the actual font file weights */
-    font-family: "Archivo Narrow", sans-serif;
+    font-family: "helvetica neue", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     
@@ -153,9 +153,9 @@ header {
 }
 
 #menu ul li a {
-    font-family: "Doto", sans-serif;
+    font-family: "helvetica neue", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 950;
+    font-weight: thin;
     font-style: normal;
     font-variation-settings:
       "ROND" 0;
@@ -225,12 +225,11 @@ header {
 .archive-year-header {
     font-size: 2rem;
     margin-bottom: 1rem;
-    font-weight: bold;
     border-bottom: 1px solid #000;
     padding-bottom: 0.5rem;
     text-align: left;
-    font-family: "Doto", sans-serif;
-    font-weight: 900;
+    font-family: "helvetica neue", sans-serif;
+    font-weight: thin;
 }
 
 .archive-year-header::after {
@@ -299,8 +298,8 @@ header {
 .archive-title {
     margin-top: 5px;
     font-size: 20px;
-    font-family: "Doto", sans-serif;
-    font-weight: 900;
+    font-family:"helvetica neue", sans-serif;    
+    font-weight: normal;
     color: #0000ff;
 }
 
@@ -366,11 +365,13 @@ header {
     color: #666;
     padding-bottom: 5px;    
     animation: fadeInOut 6s infinite;
+    font-weight: normal;
 }
 
 .main-text {
     font-size: 1.25rem;
     animation: fadeInOut 12s infinite;
+    font-weight: normal;
 }
 
 @keyframes fadeInOut {
@@ -452,7 +453,7 @@ header {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    font-weight: lighter;
+    font-weight: normal;
 
 
 }
@@ -538,8 +539,6 @@ header {
 
 
 
-
-
 /*ARTICLE TEXT + IMAGE LAYOUT*/
 .about-container, 
 .media-gallery-random,
@@ -557,17 +556,20 @@ header {
 }
 
 .about-title {
-    font-size: 70px;
+font-size: 60px;
     font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
+    margin: 0 auto 10px auto; /* Centers the actual box */
+    display: block; /* Forces it to act as a solid block */
+    width: 100%; /* Stretches it edge-to-edge so the center is the true center */
+    text-align: center !important; /* Forces the text to the absolute middle */
 }
 
 .about-subheading {
-    font-size: large;    
-    margin: 10px auto;
+    font-size: 25px;   
+    font-weight:200; 
     padding-top: 10px;
     text-align: center;
+    text-align: justify;
 
 }
 
@@ -583,7 +585,7 @@ header {
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: justify;
-    font-weight:lighter !important;
+    font-weight:normal !important;
 }
 
 .about-text-italic {
@@ -648,8 +650,9 @@ header {
 .footer-text {
     margin-top: -10px;
     font-size: 12px;
+    font-weight: normal;
     font-style: italic;
-    color: #555;
+    color: #7b7b7b;
     overflow-wrap: break-word;    
     padding-bottom: 10px;
     text-align: right;
@@ -755,11 +758,11 @@ header {
 
 @keyframes spinCard {
     from {
-		-webkit-transform: rotateY(0deg) scale(0.45);
+        -webkit-transform: rotateY(0deg) scale(0.45);
         transform: rotateY(0deg) scale(0.45);
     }
     to {
-		-webkit-transform: rotateY(360deg) scale(0.45);
+        -webkit-transform: rotateY(360deg) scale(0.45);
         transform: rotateY(360deg) scale(0.45);
     }
 }
@@ -772,28 +775,28 @@ header {
 
 /*PAGE LOADING ANIMATION*/
 #page-loader {
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-	z-index: 1000;
-	opacity: 1;
-	transition: opacity .5s ease-out
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity .5s ease-out
 }
 @keyframes fadeIn {
-	from {
-		opacity: 0
-	}
+    from {
+        opacity: 0
+    }
 
-	to {
-		opacity: 1
-	}
+    to {
+        opacity: 1
+    }
 }
 #content {
-	animation: .5s ease-out fadeIn
+    animation: .5s ease-out fadeIn
 }
 
 
@@ -813,30 +816,30 @@ header {
 
 /* RANDOM GALLERY */
 .media-gallery-random {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-	gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 5px;
     margin-top: -80px;
     max-width: 800px;
 }
 
 .media-gallery-random img,
 .media-gallery-random video {
-	width: 100%;
+    width: 100%;
     aspect-ratio: 1/1;
-	object-fit: cover;
-	cursor: pointer;
-	display: block;
-	transition: transform .3s ease-in-out;
-	border-radius: 2px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-	image-rendering: -webkit-optimize-contrast !important;
-	image-rendering: optimizeQuality !important
+    object-fit: cover;
+    cursor: pointer;
+    display: block;
+    transition: transform .3s ease-in-out;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: optimizeQuality !important
 }
 
 .media-gallery-random img:hover,
 .media-gallery-random video:hover {
-	transform: scale(1.01)
+    transform: scale(1.01)
 }
 
 
@@ -851,62 +854,62 @@ header {
 
 
 .lightbox {
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	display: none;
-	align-items: center;
-	justify-content: center;
-	background: #fff;
-	z-index: 9999;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    z-index: 9999;
     position:fixed;
     top:0
 }
 
 .arrow,
 .name {
-	position: absolute
+    position: absolute
 }
 
 .media-container {
-	width: 100%;
-	max-height: 80vh;
-	display: flex;
-	justify-content: center;
-	align-items: center
+    width: 100%;
+    max-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
 
 .media-container img,
 .media-container video {
-	max-width: 90%;
-	max-height: 75vh;
-	object-fit: contain
+    max-width: 90%;
+    max-height: 75vh;
+    object-fit: contain
 }
 
 .lightbox-text {
-	padding-top: 5px;
-	width: 90%;
-	margin: 0 auto
+    padding-top: 5px;
+    width: 90%;
+    margin: 0 auto
 
 }
 
 h1 {
-	display: inline;
-	width: auto;
-	white-space: nowrap;
+    display: inline;
+    width: auto;
+    white-space: nowrap;
 
 }
 
 .lightbox-text h2 {
-	color: red;
-	text-align: right;
-	font-size: 30px;
+    color: red;
+    text-align: right;
+    font-size: 30px;
     margin: 0px;
 }
 .lightbox-text p{
     color: red;
-	text-align: right;
-	font-size: 15px;
+    text-align: right;
+    font-size: 15px;
     margin-top: 5px;
 
 }
@@ -914,84 +917,84 @@ h1 {
 
 .close,
 .name {
-	border-radius: 5px;
-	right: 20px
+    border-radius: 5px;
+    right: 20px
 }
 
 .lightbox.active,
 .modal.active {
-	display: flex
+    display: flex
 }
 
 .hidden {
-	display: none
+    display: none
 }
 
 .visible {
-	display: block
+    display: block
 }
 
 .name {
-	bottom: 20px;
-	font-size: 12px;
-	color: #000;
-	padding: 5px 10px
+    bottom: 20px;
+    font-size: 12px;
+    color: #000;
+    padding: 5px 10px
 }
 
 .arrow,
 .close {
-	cursor: pointer;
-	color: red
+    cursor: pointer;
+    color: red
 }
 
 
 .arrow {
-	font-size: 30px;
-	line-height: center;
-	top: 50%;
-	transform: translateY(-50%);
-	z-index: 1001
+    font-size: 30px;
+    line-height: center;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001
 }
 
 .arrow::before {
-	content: "";
-	position: absolute;
-	top: -10px;
-	left: -10px;
-	right: -10px;
-	bottom: -10px;
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
 }
 
 
 .arrow:active {
-	background-color: transparent
+    background-color: transparent
 }
 
 .arrow.left,
 .arrow.right,
 .close {
-	position: absolute;
-	z-index: 1050;
-	cursor: pointer
+    position: absolute;
+    z-index: 1050;
+    cursor: pointer
 }
 
 .close {
-	position: fixed;
-	top: 50px;
-	z-index: 1100;
-	font-size: 24px;
-	background: 0 0;
-	padding: 5px 10px
+    position: fixed;
+    top: 50px;
+    z-index: 1100;
+    font-size: 24px;
+    background: 0 0;
+    padding: 5px 10px
 }
 
 .arrow.left {
-	left: 20px;
-	top: 50%
+    left: 20px;
+    top: 50%
 }
 
 .arrow.right {
-	right: 20px;
-	top: 50%
+    right: 20px;
+    top: 50%
 }
 
 
@@ -1068,6 +1071,57 @@ h1 {
 }
 
 
+/* =========================================
+   INTERVIEW LAYOUT STYLES
+========================================= */
+
+.interview-wrapper {
+    max-width: 850px;
+    margin: 40px auto;
+}
+
+.interview-wrapper p {
+    font-family: "helvetica neue", sans-serif;
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* 1. INTERVIEWER (YOU) - Indented and Bold */
+.interview-q {
+    font-weight: normal; /* Makes the text bold */
+    margin-left: 5%; /* This pushes the paragraph inwards to match the screenshot */
+    
+    /* Optional: Uncomment the line below to add your blue color back */
+    /* color: rgb(0, 8, 255); */
+}
+
+/* 2. INTERVIEWEE (GUEST) - Full Width and Normal */
+.interview-a {
+    font-weight:500; /* Makes the text bold */
+    margin-left: 0; /* Spans the full width of the container */
+    
+    /* Optional: Uncomment the line below to add your red color back */
+    /* color: rgb(255, 0, 0); */
+}
+
+
+.interview-quote {
+    font-family: "helvetica neue", "Helvetica", Arial, sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3rem); /* Dynamically scales between 1.8rem and 3rem */
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #000;
+    
+    /* Spacing */
+    margin: 80px auto; /* Huge breathing room above and below the quote */
+    padding: 0 20px; /* Removed vertical padding since there are no borders */
+    max-width: 90%; /* Keeps it from touching the very edge of the screen */
+}
 
 @media (max-width: 768px) {
     #menu {
@@ -1086,9 +1140,9 @@ h1 {
     }
 
     #menu ul li {
-        margin: 100px 0;
         /* This CENTERS the link text (the displayed element) */
-        text-align: center;     
+        text-align: left;     
+        padding-left: 25px;
     }
     /* ... rest of your link styles ... */
 
@@ -1180,14 +1234,14 @@ h1 {
         animation-play-state: running !important;
     }
     
-	#click-counter,
-	#timer {
-		display: none
-	}
+    #click-counter,
+    #timer {
+        display: none
+    }
 
     .arrow {
-		font-size: 25px
-	}
+        font-size: 25px
+    }
 
     .media-gallery {
 
@@ -1206,9 +1260,9 @@ h1 {
 
     .media-container img,
     .media-container video {
-	max-width: 80%;
-	max-height: 75vh;
-	object-fit: contain
+    max-width: 80%;
+    max-height: 75vh;
+    object-fit: contain
     }
 
 
@@ -1273,6 +1327,9 @@ h1 {
             display:block !important;
     }
 
+    .about-subheading {
+        font-size: 15px;   
+    }
     .about-text {
     text-align: left;    
     }
@@ -1286,25 +1343,50 @@ h1 {
 
     }
 
+
+    /* --- THE 2:3 MOBILE GRID LAYOUT UPDATE --- */
+    
     .grid-container {
-        grid-template-columns: repeat(2, 1fr);    
+        grid-template-columns: 1fr; /* Switch to 1 column for phone screens */
+    }
+
+    .grid-item img {
+        aspect-ratio: 2 / 3 !important; /* Force 2:3 aspect ratio */
+        height: auto;
+        object-fit: cover;
     }
 
     .overlay {
-        opacity: 1 !important; /* Force visible */
-        background: rgba(0, 0, 0, 0.4); /* You can still keep a background if you want */
+        position: absolute !important; /* Keep it overlapping the image */
+        opacity: 1 !important; /* Permanently display the text */
+        background: rgba(0, 0, 0, 0.4); /* Keep darkened background so text is readable */
     }
 
     .overlay h3 {
         margin: 0;
-        font-size: 25px;
+        font-size: 35px !important; /* Scale text slightly down for mobile */
         text-align: left;
         align-self: flex-start;
     }
     
-    .bottom-left-text p {
-    display: none;
+    .bottom-left-text {
+        position: absolute !important;
+        bottom: 10px !important;
+        left: 10px !important;
     }
+
+    .bottom-left-text p {
+        display: block !important; /* Force paragraph to show */
+        font-size: 14px;
+    }
+
+    .bottom-left-text .p2 {
+        display: block !important;
+        font-size: 11px;
+    }
+
+    /* ------------------------------------------- */
+
 
     .credits{
         font-size: 10px;
@@ -1323,6 +1405,31 @@ h1 {
     #read-more {
         font-size: 25px;
     }
+
+    /* INTERVIEW LAYOUT 4 PHONE SCREENS */
+
+.interview-wrapper {
+        margin: 30px auto;
+        width: 96%; /* Increased from 90% to push text much closer to the edges */
+    }
+
+    .interview-wrapper p {
+        font-size: 1.05rem; 
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .interview-q {
+        margin-left: 5%; /* Reduced from 8% to pull the indented text closer to the left edge */
+    }
+
+    .interview-quote {
+        margin: 40px auto; 
+        padding: 0; /* Removed extra padding so it aligns closely with the edges */
+        width: 96%; /* Matched the wrapper width */
+        font-size: 1.5rem; 
+    }
+    
 }
     
 @media (min-width: 2160px) {
