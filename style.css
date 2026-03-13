@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-/* 1. COMPLETELY UNRESTRICTED HTML/BODY (Fixes the iPhone freeze) */
+/* 1. COMPLETELY UNRESTRICTED SCROLLING ENGINE */
 html, body {
     width: 100%;
     min-height: 100vh; 
@@ -13,16 +13,17 @@ html, body {
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: lighter; 
-    /* DO NOT put overflow-x: hidden here ever again! */
+    
+    /* Safest native wobble-killer */
+    max-width: 100vw;
+    overflow-x: hidden; 
 }
 
-/* 2. APPLY THE HORIZONTAL LOCK TO THE WRAPPER INSTEAD */
+/* 2. REMOVED THE SCROLL TRAP FROM THE WRAPPER */
 #content {
     width: 100%;
-    max-width: 100vw;
-    overflow-x: hidden; /* This cleanly kills the wobble */
-    overflow-y: visible; /* Ensures vertical scrolling works */
     animation: .5s ease-out fadeIn;
+    /* Do NOT put overflow properties here! It causes the mid-page freeze. */
 }
 
 body.menu-open {
@@ -1410,13 +1411,14 @@ h1 {
 }
 
 /* Changed from 480px to 380px so it doesn't accidentally trigger and lock the screen */
+/* Changed from 480px to 380px so it doesn't accidentally trigger and lock the screen */
 @media (max-height: 380px) {
-        body {
-          height: 100vh;
-          width: 100vw;
-          background: url('FOOTAGE/smallscreendetector.jpg') center center / contain no-repeat white !important;
-          overflow: hidden; /* This is what was killing your scroll! */
-        }
+    body {
+        height: 100vh;
+        width: 100vw;
+        background: url('FOOTAGE/smallscreendetector.jpg') center center / contain no-repeat white !important;
+        /* WARNING: Make sure 'overflow: hidden;' is entirely DELETED from here! */
+    }
   
     #content,
     header,
