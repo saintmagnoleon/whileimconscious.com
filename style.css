@@ -786,20 +786,20 @@ font-size: 60px;
 
 /*PAGE LOADING ANIMATION*/
 /*PAGE LOADING ANIMATION*/
+/*PAGE LOADING ANIMATION*/
 #page-loader {
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    background-color: #ffffff; /* <-- This creates the solid white curtain */
     justify-content: center;
     align-items: center;
     z-index: 1000;
     opacity: 1;
     transition: opacity .5s ease-out;
-
-    /* THE FIX: Prevents the invisible loader from blocking your first swipe! */
-    pointer-events: none; 
+    pointer-events: none; /* <-- This lets your finger swipe through the invisible loader */
 }
 
 @keyframes fadeIn {
