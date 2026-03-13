@@ -5,7 +5,7 @@
 /* Cleaned up styles for body and html */
 /* Cleaned up styles for body and html */
 body, html {
-    height: 100%; 
+    min-height: 100vh; /* Changed from height: 100% */
     margin: 0; 
     background-color: #ffffff; 
     
@@ -14,10 +14,8 @@ body, html {
     font-style: normal;
     font-weight: lighter; 
     
-    /* ADD THIS LINE TO KILL THE HORIZONTAL WOBBLE */
     overflow-x: hidden; 
 }
-
 /* This is GOOD and is the key part for fixing the peeking menu issue. */
 body.menu-open {
     overflow-x: hidden !important /* Prevents horizontal scrolling */
@@ -1181,7 +1179,7 @@ h1 {
     }
 
     .grid-item img {
-        aspect-ratio: 3 / 4 !important; 
+        aspect-ratio: 4 / 5 !important; 
         height: auto;
         object-fit: cover;
     }
