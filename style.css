@@ -2,22 +2,27 @@
     box-sizing: border-box;
 }
 
+/* 1. SEPARATE HTML AND BODY TO PREVENT MOBILE SCROLL LOCK BUG */
+html {
+    overflow-x: hidden;
+    height: auto; /* Crucial: Ensures the page can actually grow vertically */
+}
 
-/* Cleaned up styles for body and html */
-body, html {
-    min-height: 100vh; /* <-- Changed from height: 100% */
+body {
+    min-height: 100vh; 
     margin: 0; 
     background-color: #ffffff; 
     font-family: "helvetica neue", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: lighter; 
-    max-width: 100%;
+    max-width: 100vw;
     overflow-x: hidden;
+    position: relative;
 }
-/* This is GOOD and is the key part for fixing the peeking menu issue. */
+
 body.menu-open {
-    overflow-x: hidden !important /* Prevents horizontal scrolling */
+    overflow-x: hidden !important; 
 }
 
 header {
