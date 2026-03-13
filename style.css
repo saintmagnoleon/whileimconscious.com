@@ -1405,12 +1405,13 @@ h1 {
     }
 }
 
-@media (max-height: 480px) {
+/* Changed from 480px to 380px so it doesn't accidentally trigger and lock the screen */
+@media (max-height: 380px) {
         body {
           height: 100vh;
           width: 100vw;
           background: url('FOOTAGE/smallscreendetector.jpg') center center / contain no-repeat white !important;
-          overflow: hidden;
+          overflow: hidden; /* This is what was killing your scroll! */
         }
   
     #content,
