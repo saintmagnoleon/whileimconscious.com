@@ -1181,7 +1181,7 @@ h1 {
     }
 
     .grid-item img {
-        aspect-ratio: 4 / 5 !important; 
+        aspect-ratio: 3 / 4 !important; 
         height: auto;
         object-fit: cover;
     }
