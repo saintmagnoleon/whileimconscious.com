@@ -170,24 +170,10 @@
     </div>
 
     
-<script>
-        // 1. THIS UNLOCKS THE PAGE CONTENT SO YOU CAN ACTUALLY SCROLL
-        window.addEventListener('load', function() {
-            const loader = document.getElementById('page-loader');
-            const content = document.getElementById('content');
-            
-            if (loader) loader.style.opacity = '0'; 
-            
-            setTimeout(() => {
-                if (loader) loader.style.display = 'none'; 
-                if (content) content.style.display = 'block'; // <--- This line is what brings your scrollbar back!
-            }, 500); 
-        });
-
-        // 2. READ MORE LOGIC
+    <script>
         window.addEventListener('scroll', () => {
             const readMore = document.getElementById('read-more');
-            if (readMore && (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
                 readMore.style.display = 'block';
             }
         });
