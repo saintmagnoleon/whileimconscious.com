@@ -170,26 +170,14 @@
     </div>
 
     
-<script>
-        // 1. FADE OUT THE WHITE CURTAIN 
-        window.addEventListener('load', function() {
-            const loader = document.getElementById('page-loader');
-            if (loader) {
-                loader.style.opacity = '0'; 
-                setTimeout(() => {
-                    loader.style.display = 'none'; 
-                }, 500); 
-            }
-        });
-
-        // 2. READ MORE LOGIC
-        window.addEventListener('scroll', () => {
-            const readMore = document.getElementById('read-more');
-            if (readMore && (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
-                readMore.style.display = 'block';
-            }
-        });
-    </script>
+        <script>
+            window.addEventListener('scroll', () => {
+                const readMore = document.getElementById('read-more');
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+                    readMore.style.display = 'block';
+                }
+            });
+        </script>
 
     <div id="timer" style="position: fixed; top: 0; right: 0; padding: 10px; background: transparent; color: #939393; font-size: 12px; z-index: 9999;" > </div>
     <div id=click-counter style=position:fixed;top:0;right:-15px;padding:25px;background-color:transparent;color:#939393;font-size:12px;z-index:9999>You clicked 0 times.</div>
