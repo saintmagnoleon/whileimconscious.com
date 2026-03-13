@@ -170,10 +170,22 @@
     </div>
 
     
-    <script>
+<script>
+        // 1. THIS UNLOCKS THE PAGE AND ALLOWS SCROLLING
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('page-loader');
+            const content = document.getElementById('content');
+            if (loader) loader.style.opacity = '0'; 
+            setTimeout(() => {
+                if (loader) loader.style.display = 'none'; 
+                if (content) content.style.display = 'block'; 
+            }, 500); 
+        });
+
+        // 2. READ MORE LOGIC
         window.addEventListener('scroll', () => {
             const readMore = document.getElementById('read-more');
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+            if (readMore && (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
                 readMore.style.display = 'block';
             }
         });
