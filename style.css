@@ -1413,7 +1413,7 @@ h1 {
     .grid-item img,
     .grid-video {
         /* 4/5 or 3/4 are great "tight" vertical ratios for tablets */
-        aspect-ratio: 4 / 5 !important; 
+        aspect-ratio: 3 / 4 !important; 
         height: auto;
         object-fit: cover;
     }
