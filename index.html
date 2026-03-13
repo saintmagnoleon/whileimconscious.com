@@ -171,14 +171,16 @@
 
     
 <script>
-        // 1. THIS UNLOCKS THE PAGE AND ALLOWS SCROLLING
+        // 1. THIS UNLOCKS THE PAGE CONTENT SO YOU CAN ACTUALLY SCROLL
         window.addEventListener('load', function() {
             const loader = document.getElementById('page-loader');
             const content = document.getElementById('content');
+            
             if (loader) loader.style.opacity = '0'; 
+            
             setTimeout(() => {
                 if (loader) loader.style.display = 'none'; 
-                if (content) content.style.display = 'block'; 
+                if (content) content.style.display = 'block'; // <--- This line is what brings your scrollbar back!
             }, 500); 
         });
 
