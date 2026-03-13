@@ -5,7 +5,7 @@ let debounceTimer;
 function openLightbox(index) {
     if (index < 0 || index >= works.length) return;
 
-    currentIndex = index; // Update current index
+    currentIndex = index; 
     const media = works[index];
     const lightbox = document.getElementById("lightbox-modal");
     const lightboxImg = document.getElementById("lightbox-img");
@@ -13,11 +13,11 @@ function openLightbox(index) {
     const lightboxTitle = document.getElementById("lightbox-title");
     const lightboxDescription = document.getElementById("lightbox-description");
 
-    // Update title and description
+    if (!lightbox) return; // Safeguard
+
     lightboxTitle.textContent = media.getAttribute("data-title") || "Untitled";
     lightboxDescription.textContent = media.getAttribute("data-description") || "No description available.";
 
-    // Check if it's an image or a video
     if (media.tagName.toLowerCase() === "video") {
         lightboxVideo.src = media.src || media.querySelector("source")?.src;
         lightboxVideo.style.display = "block";
@@ -32,7 +32,8 @@ function openLightbox(index) {
 }
 
 function closeLightbox() {
-    document.getElementById("lightbox-modal").style.display = "none";
+    const lightbox = document.getElementById("lightbox-modal");
+    if (lightbox) lightbox.style.display = "none";
 }
 
 function changeImage(direction) {
@@ -46,320 +47,155 @@ function changeImage(direction) {
     }, 200);
 }
 
-
-// PROGRESS BAR ANIMATION
+// THIS WAS FREEZING YOUR PHONE - NOW SAFEGUARDED
 window.addEventListener("scroll", function() {
-    let scrollTop = document.documentElement.scrollTop;
-    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let scrollPercent = (scrollTop / scrollHeight) * 100;
-    document.getElementById("progress-bar").style.width = scrollPercent + "%";
+    const progressBar = document.getElementById("progress-bar");
+    if (progressBar) { // Only calculate if the progress bar exists!
+        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        if (scrollHeight > 0) {
+            let scrollPercent = (scrollTop / scrollHeight) * 100;
+            progressBar.style.width = scrollPercent + "%";
+        }
+    }
 });
 
 
-// Wait for the DOM to load and add event listeners
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".arrow.left").addEventListener("click", () => changeImage(-1));
-    document.querySelector(".arrow.right").addEventListener("click", () => changeImage(1));
+    // Safeguard Lightbox Arrows
+    const arrowLeft = document.querySelector(".arrow.left");
+    const arrowRight = document.querySelector(".arrow.right");
+    if (arrowLeft) arrowLeft.addEventListener("click", () => changeImage(-1));
+    if (arrowRight) arrowRight.addEventListener("click", () => changeImage(1));
 
     works.forEach((element, index) => {
-        element.addEventListener("click", () => {
-            openLightbox(index);
-        });
+        element.addEventListener("click", () => openLightbox(index));
     });
 
-    // Add event listener for keyboard navigation
     document.addEventListener("keydown", (event) => {
-        if (document.getElementById("lightbox-modal").style.display === "flex") { // Check if lightbox is open
-            if (event.key === "ArrowLeft") {
-                changeImage(-1); // Move to previous image/video
-            } else if (event.key === "ArrowRight") {
-                changeImage(1); // Move to next image/video
-            } else if (event.key === "Escape") {
-                closeLightbox(); // Close the lightbox when pressing Esc
-            }
-        }
-    });
-});
-
-
-
-
-
-function updateTime() {
-    const e = (new Date).toLocaleTimeString();
-    document.getElementById("dateTimeLocation").textContent = `It's ${e}`
-}
-document.addEventListener("DOMContentLoaded", () => {
-    // Event listeners for arrow keys
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "ArrowLeft") {
-            changeImage(-1);
-        } else if (event.key === "ArrowRight") {
-            changeImage(1);
+        const lightbox = document.getElementById("lightbox-modal");
+        if (lightbox && lightbox.style.display === "flex") { 
+            if (event.key === "ArrowLeft") changeImage(-1);
+            else if (event.key === "ArrowRight") changeImage(1);
+            else if (event.key === "Escape") closeLightbox();
         }
     });
 
-    // Click counter logic
-    var clickCounter = document.getElementById("click-counter");
-    var clickCount = parseInt(sessionStorage.getItem("clickCount")) || 0;
-    clickCounter.innerText = `You clicked ${clickCount} times.`;
-    
-    document.addEventListener("click", () => {
-        clickCount++;
-        sessionStorage.setItem("clickCount", clickCount);
+    // Safeguard Click Counter
+    const clickCounter = document.getElementById("click-counter");
+    if (clickCounter) {
+        let clickCount = parseInt(sessionStorage.getItem("clickCount")) || 0;
         clickCounter.innerText = `You clicked ${clickCount} times.`;
-    });
-
-    // Display current date
-    document.getElementById("current-date").textContent = new Date().toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-    });
-});
-
-
-
-
-
-// Session timer logic
-window.onload = function() {
-    if (!sessionStorage.getItem("startTime")) {
-        sessionStorage.setItem("startTime", Date.now().toString()); // Ensure it's stored as a string
+        document.addEventListener("click", () => {
+            clickCount++;
+            sessionStorage.setItem("clickCount", clickCount);
+            clickCounter.innerText = `You clicked ${clickCount} times.`;
+        });
     }
 
+    // Safeguard Current Date
+    const dateElement = document.getElementById("current-date");
+    if (dateElement) {
+        dateElement.textContent = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    }
+
+    generateArchive();
+});
+
+// Session timer logic
+window.addEventListener("load", function() {
+    if (!sessionStorage.getItem("startTime")) {
+        sessionStorage.setItem("startTime", Date.now().toString()); 
+    }
     setInterval(() => {
-        const startTime = parseInt(sessionStorage.getItem("startTime"), 10); // Convert to number
-        if (!isNaN(startTime)) {
+        const startTime = parseInt(sessionStorage.getItem("startTime"), 10); 
+        const timer = document.getElementById("timer");
+        if (!isNaN(startTime) && timer) {
             const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
-            document.getElementById("timer").innerText = `You've been here for ${elapsedTime} seconds.`;
+            timer.innerText = `You've been here for ${elapsedTime} seconds.`;
         }
     }, 1000);
-};
-// Remove session timer on page unload
+});
+
 window.onbeforeunload = function() {
     sessionStorage.removeItem("startTime");
 };
-
-
-
-
 
 // Page loader effect
 window.addEventListener("load", () => {
     const loader = document.getElementById("page-loader");
     const content = document.getElementById("content");
-    loader.style.opacity = 0;
+    if (loader) loader.style.opacity = 0;
     setTimeout(() => {
-        loader.style.display = "none";
-        content.style.display = "block";
+        if (loader) loader.style.display = "none";
+        if (content) content.style.display = "block";
     }, 500);
 });
 
-
-
-//MENU ICON TRANSITION ANIMATION    
+// Safeguard Menu Icon
 const menu = document.getElementById("menu");
 const menuButton = document.getElementById("menu-button");
-const body = document.body; // Get the body element
-
-menuButton.addEventListener("click", function() {
-    menu.classList.toggle("show");
-    menuButton.classList.toggle("active");
-    body.classList.toggle("menu-open"); 
-});
-
-
-document.getElementById("search-bar").addEventListener("input", function () {
-    const query = this.value.toLowerCase();
-    filterArchive(query);
-});
-
-
-
-
-function filterArchive(query) {
-    const archiveItems = document.querySelectorAll(".archive-item");
-
-    archiveItems.forEach(item => {
-        const title = item.querySelector(".archive-title").textContent.toLowerCase();
-        const content = item.querySelector(".archive-content").textContent.toLowerCase();
-
-        if (title.includes(query) || content.includes(query)) {
-            item.style.display = "flex"; // Show matching items
-        } else {
-            item.style.display = "none"; // Hide non-matching items
-        }
+if (menuButton && menu) {
+    menuButton.addEventListener("click", function() {
+        menu.classList.toggle("show");
+        menuButton.classList.toggle("active");
+        document.body.classList.toggle("menu-open"); 
     });
 }
 
+// Safeguard Search Bar
+const searchBar = document.getElementById("search-bar");
+if (searchBar) {
+    searchBar.addEventListener("input", function () {
+        const query = this.value.toLowerCase();
+        filterArchive(query);
+    });
+    searchBar.addEventListener('input', searchKeyword);
+}
 
-
-
-
+function filterArchive(query) {
+    const archiveItems = document.querySelectorAll(".archive-item");
+    archiveItems.forEach(item => {
+        const title = item.querySelector(".archive-title").textContent.toLowerCase();
+        const content = item.querySelector(".archive-content").textContent.toLowerCase();
+        item.style.display = (title.includes(query) || content.includes(query)) ? "flex" : "none";
+    });
+}
 
 const archiveData = [
-
-
-    { 
-        title: "BOJVCK OUTTA MOTHERLAND", 
-        year: 2026, 
-        content: "January 23, 2026", 
-        thumbnail: "FOOTAGE/IMAGE/2026/BOJVCK_OUTTA_MOTHERLAND/bojvckthumbnail.jpg",
-        link: "2026JANUARY_BOJVCK_OUTTAMOTHERLAND.html" 
-    },
-
-
-        { 
-        title: "WRECK IT REKK!", 
-        year: 2026, 
-        content: "January 18, 2026", 
-        thumbnail: "FOOTAGE/IMAGE/2026/WRECK_IT_REKK/senegalbonnetthumbnail.jpg",
-        link: "2026JANUARY_WRECKITREKK.html" 
-    },
-
-
-    { 
-        title: "OJOS DE 2016", 
-        year: 2025, 
-        content: "December 22, 2026", 
-        thumbnail: "FOOTAGE/IMAGE/2025/OJOS_DE_2016/ojosde2016thumbnail.jpg",
-        link: "2025OJOSDE2016.html" 
-    },
-
-    { 
-        title: "I AM PRADA OF YOU", 
-        year: 2025, 
-        content: "December 26, 2025", 
-        thumbnail: "FOOTAGE/IMAGE/2025/I_AM_PRADA_OF_YOU/iampradaofyouthumbnail.jpg",
-        link: "2025IAMPRADAOFYOU.html" 
-    },
-
-    { 
-        title: "EXPERIENCED AMATEUR", 
-        year: 2025, 
-        content: "October 2, 2025", 
-        thumbnail: "FOOTAGE/IMAGE/BLUEWALLPHOTOSHOOTCHOISY/leopoldthumbnail.jpg",
-        link: "2025EXPERIENCED_AMATEUR.html" 
-    },
-
-    { 
-        title: "MUTATED JUNGLE", 
-        year: 2025, 
-        content: "June 6, 2025", 
-        thumbnail: "FOOTAGE/IMAGE/MUTATED JUNGLE/homethumbnail.jpg",
-        link: "2025MUTATED_JUNGLE.html" 
-    },
-
-    { 
-        title: "PÉRIODE BLEUE", 
-        year: 2025, 
-        content: "April 12, 2025", 
-        thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/lanouvellevagueinstapost.jpg",
-        link: "2025PERIODE_BLEUE.html" 
-    },
-    { 
-        title: "ECDYSIS ISSUE", 
-        year: 2025, 
-        content: "March 3, 2025", 
-        thumbnail: "FOOTAGE/IMAGE/VIDEO THUMBNAILS/gaelreadingissue3.jpg",
-        link: "2025ECDYSIS.html" 
-    },
-    { 
-        title: "RANDOM 2025", 
-        year: 2025, 
-        content: "March 28, 2025", 
-        thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/melookingthruthewindow2.jpg",
-        link: "2025RANDOM2025.html"
-    },
-    { 
-        title: "'ANTHROPOCÈNE'", 
-        year: 2024, 
-        content: "August 19, 2024", 
-        thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/eneko.avif",
-        link: "2024ANTHROPOCENE.html" 
-    },
-
-    { 
-        title: "ACWS", 
-        year: 2024, 
-        content: "May 12, 2024", 
-        thumbnail: "FOOTAGE/IMAGE/ACWS/santi_squared.jpg",
-        link: "2024ACWS.html" 
-    },
-
-    { 
-        title: "'BOUQUET DE FLEURS'", 
-        year: 2024, 
-        content: "May 5, 2024", 
-        thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/chaeyu1.avif",
-        link: "2024BOUQUET DE FLEURS.html"
-    },
-    { 
-        title: "'SANS TITRE'", 
-        year: 2024, 
-        content: "March 26, 2024", 
-        thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/milan2.avif",
-        link: "2024SANS_TITRE.html"
-    },
-    { 
-        title: "'THE BARRACKS'", 
-        year: 2024, 
-        content: "March 26, 2024", 
-        thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/lanouvellevague.avif",
-        link: "2024THE_BARRACKS.html"
-    },
-    { 
-        title: "'BLIND SELF RELIANCE'", 
-        year: 2024, 
-        content: "April 12, 2024", 
-        thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/diego.jpg",
-        link: "2024BLIND_SELF_RELIANCE.html" 
-    },
-    { 
-        title: "RANDOM 2024", 
-        year: 2024, 
-        content: "December 31, 2024", 
-        thumbnail: "FOOTAGE/IMAGE/RANDOM 2024/ladybird.jpg",
-        link: "2024RANDOM2024.html" 
-    },
-    { 
-        title: "FICDB ISSUE", 
-        year: 2024, 
-        content: "February 2, 2024", 
-        thumbnail: "FOOTAGE/IMAGE/VIDEO THUMBNAILS/eyesissue2.jpg",
-        link: "2024FICDB.html" 
-    },
-    { 
-        title: "'UN1T' DIRECTED BY SEUNGYU JUNG", 
-        year: 2023, 
-        content: "May 30, 2023", 
-        thumbnail: "FOOTAGE/IMAGE/VIDEO THUMBNAILS/un1t.jpg",
-        link: "2023UN1T.html" 
-    }
-
-    , { 
-        title: "The Refusal of The Creation", 
-        year: 2023, 
-        content: "June 3, 2023", 
-        thumbnail: "FOOTAGE/IMAGE/THEREFUSALOFTHECREATION/therefusalofthecreationthumbnail.jpg",
-        link: "2023THE_REFUSAL_of_THE_CREATION.html" 
-    }
+    { title: "BOJVCK OUTTA MOTHERLAND", year: 2026, content: "January 23, 2026", thumbnail: "FOOTAGE/IMAGE/2026/BOJVCK_OUTTA_MOTHERLAND/bojvckthumbnail.jpg", link: "2026JANUARY_BOJVCK_OUTTAMOTHERLAND.html" },
+    { title: "WRECK IT REKK!", year: 2026, content: "January 18, 2026", thumbnail: "FOOTAGE/IMAGE/2026/WRECK_IT_REKK/senegalbonnetthumbnail.jpg", link: "2026JANUARY_WRECKITREKK.html" },
+    { title: "OJOS DE 2016", year: 2025, content: "December 22, 2026", thumbnail: "FOOTAGE/IMAGE/2025/OJOS_DE_2016/ojosde2016thumbnail.jpg", link: "2025OJOSDE2016.html" },
+    { title: "I AM PRADA OF YOU", year: 2025, content: "December 26, 2025", thumbnail: "FOOTAGE/IMAGE/2025/I_AM_PRADA_OF_YOU/iampradaofyouthumbnail.jpg", link: "2025IAMPRADAOFYOU.html" },
+    { title: "EXPERIENCED AMATEUR", year: 2025, content: "October 2, 2025", thumbnail: "FOOTAGE/IMAGE/BLUEWALLPHOTOSHOOTCHOISY/leopoldthumbnail.jpg", link: "2025EXPERIENCED_AMATEUR.html" },
+    { title: "MUTATED JUNGLE", year: 2025, content: "June 6, 2025", thumbnail: "FOOTAGE/IMAGE/MUTATED JUNGLE/homethumbnail.jpg", link: "2025MUTATED_JUNGLE.html" },
+    { title: "PÉRIODE BLEUE", year: 2025, content: "April 12, 2025", thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/lanouvellevagueinstapost.jpg", link: "2025PERIODE_BLEUE.html" },
+    { title: "ECDYSIS ISSUE", year: 2025, content: "March 3, 2025", thumbnail: "FOOTAGE/IMAGE/VIDEO THUMBNAILS/gaelreadingissue3.jpg", link: "2025ECDYSIS.html" },
+    { title: "RANDOM 2025", year: 2025, content: "March 28, 2025", thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/melookingthruthewindow2.jpg", link: "2025RANDOM2025.html" },
+    { title: "'ANTHROPOCÈNE'", year: 2024, content: "August 19, 2024", thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/eneko.avif", link: "2024ANTHROPOCENE.html" },
+    { title: "ACWS", year: 2024, content: "May 12, 2024", thumbnail: "FOOTAGE/IMAGE/ACWS/santi_squared.jpg", link: "2024ACWS.html" },
+    { title: "'BOUQUET DE FLEURS'", year: 2024, content: "May 5, 2024", thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/chaeyu1.avif", link: "2024BOUQUET DE FLEURS.html" },
+    { title: "'SANS TITRE'", year: 2024, content: "March 26, 2024", thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/milan2.avif", link: "2024SANS_TITRE.html" },
+    { title: "'THE BARRACKS'", year: 2024, content: "March 26, 2024", thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/lanouvellevague.avif", link: "2024THE_BARRACKS.html" },
+    { title: "'BLIND SELF RELIANCE'", year: 2024, content: "April 12, 2024", thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/diego.jpg", link: "2024BLIND_SELF_RELIANCE.html" },
+    { title: "RANDOM 2024", year: 2024, content: "December 31, 2024", thumbnail: "FOOTAGE/IMAGE/RANDOM 2024/ladybird.jpg", link: "2024RANDOM2024.html" },
+    { title: "FICDB ISSUE", year: 2024, content: "February 2, 2024", thumbnail: "FOOTAGE/IMAGE/VIDEO THUMBNAILS/eyesissue2.jpg", link: "2024FICDB.html" },
+    { title: "'UN1T' DIRECTED BY SEUNGYU JUNG", year: 2023, content: "May 30, 2023", thumbnail: "FOOTAGE/IMAGE/VIDEO THUMBNAILS/un1t.jpg", link: "2023UN1T.html" },
+    { title: "The Refusal of The Creation", year: 2023, content: "June 3, 2023", thumbnail: "FOOTAGE/IMAGE/THEREFUSALOFTHECREATION/therefusalofthecreationthumbnail.jpg", link: "2023THE_REFUSAL_of_THE_CREATION.html" }
 ];
 
 function generateArchive() {
     const container = document.getElementById("archive-container");
-    container.innerHTML = "";
+    if (!container) return; // Safeguard if not on Archive page
 
+    container.innerHTML = "";
     const grouped = archiveData.reduce((acc, item) => {
         acc[item.year] = acc[item.year] || [];
         acc[item.year].push(item);
         return acc;
     }, {});
 
-    const sortedYears = Object.keys(grouped).sort((a, b) => b - a);
-
-    sortedYears.forEach(year => {
+    Object.keys(grouped).sort((a, b) => b - a).forEach(year => {
         const yearSection = document.createElement("div");
         yearSection.classList.add("archive-year-section");
 
@@ -369,6 +205,7 @@ function generateArchive() {
 
         const grid = document.createElement("div");
         grid.classList.add("archive-grid");
+        grid.style.display = "none";
 
         grouped[year].forEach(item => {
             const linkWrapper = document.createElement("a");
@@ -387,53 +224,41 @@ function generateArchive() {
             content.classList.add("archive-content");
             content.textContent = item.content;
 
-            linkWrapper.appendChild(thumbnail);
-            linkWrapper.appendChild(title);
-            linkWrapper.appendChild(content);
+            linkWrapper.append(thumbnail, title, content);
             grid.appendChild(linkWrapper);
         });
 
-        // Initially collapsed
-        grid.style.display = "none";
-
-        // Toggle collapse
         yearHeader.addEventListener("click", () => {
             const isVisible = grid.style.display === "grid";
             grid.style.display = isVisible ? "none" : "grid";
             yearHeader.classList.toggle("open", !isVisible);
         });
 
-        yearSection.appendChild(yearHeader);
-        yearSection.appendChild(grid);
+        yearSection.append(yearHeader, grid);
         container.appendChild(yearSection);
     });
 }
-document.addEventListener("DOMContentLoaded", generateArchive);
-
 
 function searchKeyword() {
     clearSearch();
-
-    const searchTerm = document.getElementById('search-bar').value.trim();
+    const searchInput = document.getElementById('search-bar');
+    if (!searchInput) return;
+    
+    const searchTerm = searchInput.value.trim();
     if (!searchTerm) return;
 
     const regex = new RegExp(searchTerm, 'gi');
     const yearSections = document.querySelectorAll('.archive-year-section');
     const foundInSections = new Set();
 
-    // Highlight matching titles and contents
-    const elements = document.querySelectorAll('.archive-title, .archive-content');
-    elements.forEach(el => {
+    document.querySelectorAll('.archive-title, .archive-content').forEach(el => {
         const originalText = el.textContent;
         if (regex.test(originalText)) {
-            el.innerHTML = originalText.replace(regex, match =>
-                `<span class="highlight">${match}</span>`
-            );
+            el.innerHTML = originalText.replace(regex, match => `<span class="highlight">${match}</span>`);
             foundInSections.add(el.closest('.archive-year-section'));
         }
     });
 
-    // Expand sections with matches, collapse others
     yearSections.forEach(section => {
         const grid = section.querySelector('.archive-grid');
         const header = section.querySelector('.archive-year-header');
@@ -448,30 +273,14 @@ function searchKeyword() {
 }
 
 function clearSearch() {
-    // Remove highlights
-    const highlights = document.querySelectorAll('.highlight');
-    highlights.forEach(span => {
+    document.querySelectorAll('.highlight').forEach(span => {
         const parent = span.parentNode;
         parent.replaceChild(document.createTextNode(span.textContent), span);
         parent.normalize();
     });
 
-    // Collapse all sections
-    const yearSections = document.querySelectorAll('.archive-year-section');
-    yearSections.forEach(section => {
-        const grid = section.querySelector('.archive-grid');
-        const header = section.querySelector('.archive-year-header');
-        grid.style.display = "none";
-        header.classList.remove("open");
+    document.querySelectorAll('.archive-year-section').forEach(section => {
+        section.querySelector('.archive-grid').style.display = "none";
+        section.querySelector('.archive-year-header').classList.remove("open");
     });
 }
-
-// Initialize everything
-document.addEventListener('DOMContentLoaded', () => {
-    generateArchive();
-
-    const searchBar = document.getElementById('search-bar');
-    if (searchBar) {
-        searchBar.addEventListener('input', searchKeyword);
-    }
-});
