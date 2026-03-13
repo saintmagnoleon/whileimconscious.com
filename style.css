@@ -78,15 +78,6 @@ header {
     color: rgba(0, 21, 255, 0.473); /* or whatever color you want */
 }
 
-#progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 48px;
-    background: rgb(219, 219, 219); /* Change to your preferred color */
-    z-index: 4000;
-}
 
 
 /*MENU*/
@@ -567,11 +558,12 @@ font-size: 60px;
 }
 
 .about-subheading {
-    font-size: 25px;   
+    font-size: 20px;   
     font-weight:200; 
     padding-top: 10px;
     text-align: center;
     text-align: justify;
+
 
 }
 
@@ -824,10 +816,11 @@ font-size: 60px;
 /* RANDOM GALLERY */
 .media-gallery-random {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);    
     gap: 5px;
     margin-top: -80px;
     max-width: 800px;
+    padding-top: 20px;
 }
 
 .media-gallery-random img,
@@ -1256,9 +1249,7 @@ h1 {
         white-space: normal;
     }
 
-    .about-subheading {
-        font-size: 15px;   
-    }
+
 
     .welcome-section {
         flex-direction: column;
@@ -1306,10 +1297,6 @@ h1 {
     .media-gallery { grid-template-columns: repeat(2, 1fr); }
     
 
-    .media-gallery-random {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-        padding-top: 20px;
-    }
 
     .video-wrapper {
         width: 98%;
@@ -1402,6 +1389,11 @@ h1 {
     .card:hover {
         animation-play-state: running !important;
     }
+
+    .media-gallery-random {
+    padding-top: 45px;
+
+}
 }
 
 
