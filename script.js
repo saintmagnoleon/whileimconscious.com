@@ -171,7 +171,7 @@ const archiveData = [
     { title: "MUTATED JUNGLE", year: 2025, content: "June 6, 2025", thumbnail: "FOOTAGE/IMAGE/MUTATED JUNGLE/homethumbnail.jpg", link: "2025MUTATED_JUNGLE.html" },
     { title: "PÉRIODE BLEUE", year: 2025, content: "April 12, 2025", thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/lanouvellevagueinstapost.jpg", link: "2025PERIODE_BLEUE.html" },
     { title: "ECDYSIS ISSUE", year: 2025, content: "March 3, 2025", thumbnail: "FOOTAGE/IMAGE/VIDEO THUMBNAILS/gaelreadingissue3.jpg", link: "2025ECDYSIS.html" },
-    { title: "RANDOM 2025", year: 2025, content: "March 28, 2025", thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/melookingthruthewindow2.jpg", link: "2025RANDOM2025.html" },
+    { title: "RANDOM 2025", year: 2025, content: "December 31, 2025", thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/melookingthruthewindow2.jpg", link: "2025RANDOM2025.html" },
     { title: "'ANTHROPOCÈNE'", year: 2024, content: "August 19, 2024", thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/eneko.avif", link: "2024ANTHROPOCENE.html" },
     { title: "ACWS", year: 2024, content: "May 12, 2024", thumbnail: "FOOTAGE/IMAGE/ACWS/santi_squared.jpg", link: "2024ACWS.html" },
     { title: "'BOUQUET DE FLEURS'", year: 2024, content: "May 5, 2024", thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/chaeyu1.avif", link: "2024BOUQUET DE FLEURS.html" },
