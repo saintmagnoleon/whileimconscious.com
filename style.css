@@ -4,6 +4,8 @@
 
 html {
     overflow-x: hidden;
+    overflow-y: auto !important; /* NUCLEAR OPTION: Force vertical scroll */
+    -webkit-overflow-scrolling: touch !important; /* Force iOS to allow finger scrolling */
 }
 
 body {
@@ -16,12 +18,13 @@ body {
     font-style: normal;
     font-weight: lighter; 
     overflow-x: hidden;
-    position: relative;
+    overflow-y: auto !important; /* NUCLEAR OPTION: Force vertical scroll */
+    -webkit-overflow-scrolling: touch !important; /* Force iOS to allow finger scrolling */
+    
+    /* REMOVED: position: relative; (This is what usually kills iOS scrolling) */
 }
 
-body.menu-open {
-    overflow: hidden !important; 
-}
+
 
 header {
     position: fixed;
