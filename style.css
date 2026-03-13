@@ -2,10 +2,9 @@
     box-sizing: border-box;
 }
 
-/* 1. COMPLETELY UNRESTRICTED SCROLLING ENGINE */
+/* 1. COMPLETELY UNRESTRICTED HTML/BODY */
 html, body {
     width: 100%;
-    min-height: 100vh; 
     margin: 0; 
     padding: 0;
     background-color: #ffffff; 
@@ -17,13 +16,16 @@ html, body {
     /* Safest native wobble-killer */
     max-width: 100vw;
     overflow-x: hidden; 
+
+    /* THE FIXES FOR "FIRST SWIPE STUCK" */
+    touch-action: pan-y; /* Tells phone NOT to delay the first finger swipe */
+    -webkit-overflow-scrolling: touch; /* Forces smooth scrolling on iOS */
 }
 
 /* 2. REMOVED THE SCROLL TRAP FROM THE WRAPPER */
 #content {
     width: 100%;
     animation: .5s ease-out fadeIn;
-    /* Do NOT put overflow properties here! It causes the mid-page freeze. */
 }
 
 body.menu-open {
@@ -783,6 +785,7 @@ font-size: 60px;
 
 
 /*PAGE LOADING ANIMATION*/
+/*PAGE LOADING ANIMATION*/
 #page-loader {
     position: fixed;
     left: 0;
@@ -793,8 +796,12 @@ font-size: 60px;
     align-items: center;
     z-index: 1000;
     opacity: 1;
-    transition: opacity .5s ease-out
+    transition: opacity .5s ease-out;
+
+    /* THE FIX: Prevents the invisible loader from blocking your first swipe! */
+    pointer-events: none; 
 }
+
 @keyframes fadeIn {
     from {
         opacity: 0
