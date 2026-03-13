@@ -1402,6 +1402,24 @@ h1 {
         animation-play-state: running !important;
     }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    
+    /* Keeps the 2-column grid but tightens the aspect ratio */
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .grid-item img,
+    .grid-video {
+        /* 4/5 or 3/4 are great "tight" vertical ratios for tablets */
+        aspect-ratio: 4 / 5 !important; 
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+
 @media (min-width: 2160px) {
 
     .grid-container {
