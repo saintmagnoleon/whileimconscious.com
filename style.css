@@ -1,26 +1,27 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Cleaned up styles for body and html */
 /* Cleaned up styles for body and html */
 body, html {
-    /* Sets the height of both elements to fill the viewport, a common best practice */
-    /* If you don't need this, you can safely remove these two lines */
     height: 100%; 
-    margin: 0; /* Essential for removing default browser margins */
+    margin: 0; 
     background-color: #ffffff; 
     
-    /* Font settings - ensure these match the actual font file weights */
     font-family: "Archivo Narrow", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    font-weight: lighter; 
     
-    /* Keep only the desired font-weight */
-    font-weight: lighter; /* Assuming you want the lighter look */
-    /* If you wanted 600, you would use: font-weight: 600; */
+    /* ADD THIS LINE TO KILL THE HORIZONTAL WOBBLE */
+    overflow-x: hidden; 
 }
 
 /* This is GOOD and is the key part for fixing the peeking menu issue. */
 body.menu-open {
     overflow-x: hidden !important /* Prevents horizontal scrolling */
 }
-
 
 
 header {
