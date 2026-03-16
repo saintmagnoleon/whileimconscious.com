@@ -59,7 +59,7 @@ header {
 }
 
 .header-background-color{
-    background-color: #ffffff; /* Dark blue color */
+    background-color: #e9e9e9; /* Dark blue color */
     height: 48px;
     position: fixed; /* Changed from sticky to fixed */
     top: 0;
