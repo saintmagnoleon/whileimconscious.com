@@ -178,7 +178,6 @@ const archiveData = [
     { title: "'THE BARRACKS'", year: 2024, content: "March 26, 2024", thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/lanouvellevague.avif", link: "2024THE_BARRACKS.html" },
     { title: "'BLIND SELF RELIANCE'", year: 2024, content: "April 12, 2024", thumbnail: "FOOTAGE/IMAGE/ARCHIVE_THUMBNAILS/diego.jpg", link: "2024BLIND_SELF_RELIANCE.html" },
     { title: "RANDOM 2024", year: 2024, content: "December 31, 2024", thumbnail: "FOOTAGE/IMAGE/RANDOM 2024/ladybird.jpg", link: "2024RANDOM2024.html" },
-    { title: "'UN1T' DIRECTED BY SEUNGYU JUNG", year: 2023, content: "May 30, 2023", thumbnail: "FOOTAGE/IMAGE/VIDEO THUMBNAILS/un1t.jpg", link: "2023UN1T.html" },
     { title: "The Refusal of The Creation", year: 2023, content: "June 3, 2023", thumbnail: "FOOTAGE/IMAGE/THEREFUSALOFTHECREATION/therefusalofthecreationthumbnail.jpg", link: "2023THE_REFUSAL_of_THE_CREATION.html" }
 ];
 
